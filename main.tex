@@ -1,0 +1,900 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc} 
+\usepackage{amssymb}
+\usepackage{faktor} 
+\usepackage{fancyhdr}
+\usepackage{todonotes}
+\usepackage{amsmath}
+\usepackage{hyperref}
+%\usepackage[capitalize,nameinlink]{cleveref}
+\usepackage{amsthm}
+%\usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
+
+
+% Theorem Environments
+\theoremstyle{nicestyle}
+\newtheorem{theorem}{Theorem}[subsection]
+\providecommand*{\theoremautorefname}{Theorem}
+\newtheorem{problem}{Problem}[subsection]
+\providecommand*{\problemeautorefname}{Problem}
+\newtheorem{hint}{Hint}[subsection]
+\providecommand*{\hintautorefname}{Problem}
+\newtheorem{exercise}{Exercise}[subsection]
+\providecommand*{\exerciseautorefname}{Exercise}
+\newtheorem{definition}{Definition}[subsection]
+\providecommand*{\definitionautorefname}{Definition}
+\newtheorem{lemma}{Lemma}[subsection]
+\providecommand*{\lemmaautorefname}{Lemma}
+\newtheorem{proposition}{Proposition}[subsection]
+\providecommand*{\propositionautorefname}{Propositon}
+\newtheorem{corollary}{Corollary}[subsection]
+\providecommand*{\corollaryautorefname}{Corollary}
+\newtheorem{claim}{Claim}[subsection]
+\providecommand*{\claimautorefname}{Claim}
+\newtheorem{subclaim}{Subclaim}[subsection]
+\providecommand*{\subclaimautorefname}{Subclaim}
+\newtheorem{convention}{Convention}[subsection]
+\providecommand*{\conventionautorefname}{Convention}
+\newtheorem{remark}{Remark}[subsection]
+\providecommand*{\remarkautorefname}{Remark}
+\newtheorem{fact}{Fact}[subsection]
+\providecommand*{\factautorefname}{Fact}
+\newtheorem{example}{Example}[subsection]
+\providecommand*{\exampleautorefname}{Example}
+\newtheorem{notation}{Notation}[subsection]
+\providecommand*{\notationautorefname}{Notation}
+\newtheorem{question}{Question}[subsection]
+\providecommand*{\questionautorefname}{Question}
+
+\newtheorem*{exercise*}{Exercise}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{claim*}{Claim} 
+\newtheorem*{subclaim*}{Subclaim}
+\newtheorem*{convention*}{Convention}
+
+% Proofblack
+\newenvironment{proofblack}{\begin{proof}}
+  {\renewcommand{\qedsymbol}{$\blacksquare$}\end{proof}}
+
+% Math Operators
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\col}{Col}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\rank}{rank} 
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ord}{Ord}
+\DeclareMathOperator{\limit}{Lim} 
+\DeclareMathOperator{\zfc}{ZFC}
+\DeclareMathOperator{\zf}{ZF} 
+\DeclareMathOperator{\tc}{tc}
+\DeclareMathOperator{\rk}{rk} 
+\DeclareMathOperator{\cf}{cf}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\fn}{Fn}
+\DeclareMathOperator{\ult}{Ult}
+\DeclareMathOperator{\rS}{r \Sigma}
+\DeclareMathOperator{\crit}{crit}
+\DeclareMathOperator{\trcl}{trcl}
+\DeclareMathOperator{\lh}{lh}
+\DeclareMathOperator{\wfp}{wfp}
+\DeclareMathOperator{\hull}{Hull}
+\DeclareMathOperator{\otp}{otp}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\lex}{lex}
+\DeclareMathOperator{\length}{lh}
+\DeclareMathOperator{\gch}{GCH}
+\DeclareMathOperator{\rud}{rud}
+
+\begin{document}
+\author{Stefan Mesken}
+\title{Fine Structure Seminar \\
+Rutgers University}
+\maketitle
+
+\setcounter{section}{0}
+\section{Fine Structure}
+
+Unless specified otherwise, $M,N$ are acceptable
+$\mathcal{J}$-structures, $k,l,m,n < \omega$.
+
+\setcounter{subsection}{7}
+\subsection{Substitution and Good Functions}
+
+\todo[inline]{First Draft}
+
+\begin{problem}
+  $\Sigma^{(n)}_1(M)$-relations are not necessarily closed under
+  substitution of $\Sigma^{(n)}_1(M)$-functions.
+\end{problem}
+
+\begin{exercise}
+  Find an example for a $\Sigma^{(n)}_1(M)$-relation $R$ and a
+  (partial) $\Sigma^{(n)}_1(M)$-function $f$ such that $R \circ f$ is
+  not a $\Sigma^{(n)}_1(M)$ relation.
+\end{exercise}
+
+\begin{hint}
+  Suppose that $M$ is an acceptable $\mathcal{J}$-structure
+  s.t. $\omega \rho^2_M < \omega \rho^1_M$ and such that there is some
+  $\Sigma^{(0)}_0$-formula $\phi$ and some $p in M$ with
+  \[
+    A := \{ \xi < \omega \rho^2_M \mid M \models \exists x^1 \phi [
+    \xi, x^{(1)}, p ] \} \not \in M.
+  \]
+  (Such $M$ exist. In fact, we can pick $M = J_{\alpha}$ for some countable $\alpha$.) \\
+  Let $f$ be the partial $\Sigma^{(0)}_1(M)$-function defined by the
+  formula
+  \[
+    \psi(y^{(0)}, z^{(1)}) : \iff y^{(0)} = z^{(1)}.
+  \]
+ Consider $\phi(x^{(0)}, f(y^{(0)}), p)$.
+\end{hint}
+
+Our goal is to identify a sufficiently large collection of
+$\Sigma^{(n)}_1$-functions that can be substitued into
+$\Sigma^{(n)}_1$-relations without increasing their complexity.
+
+\begin{lemma}
+  Let $n < \omega$ and $R(\vec{x}^{0}, \ldots, \vec{x}^n)$ be a
+  $\Sigma^{(n)}_1(M)$-relation. Let $F^0, \ldots, F^{n}$ be such that
+  for all $i \le n$ $F^i(\vec{x}^{0}, \ldots, \vec{x}^{(n)})$ is a
+  partial $\Sigma^{(i)}_1(M)$-function to $H^i_{M}$. Then
+  \[
+    R(F^{0}(\vec{x}^{0}, \ldots, \vec{x}^{n}), \ldots,
+    F^{n}(\vec{x}^{0}, \ldots, \vec{x}^n))
+  \]
+  is (uniformly) a $\Sigma^{(n)}_1(M)$-relation.
+\end{lemma}
+
+\begin{proof}
+  By induction on $n$. The case $n=0$ is a simplification of the induction step
+  $n \mapsto n+1$, hence we will only consider the latter: \\
+
+  Let $R(\vec{x}^{0}, \ldots, \vec{x}^n)$ be a $\Sigma^{(n+1)}_1(M)$ relation and let $F^0, \ldots, F^{n+1}$ be as above. Write
+  \[
+    R(\vec{x}^{0}, \ldots, \vec{x}^{n+1}) \equiv \exists z^{n+1}
+    B(\vec{v^{n+1}}, \vec{x}^{n+1}) R^{*}(\vec{x}^{0}, \ldots,
+    \vec{x}^{n+1}, \vec{v}^{n+1}, z^{n+1})
+  \]
+  with
+  \begin{enumerate}
+  \item $B$ being a block of bounded quantifiers and
+  \item $R^{*}$ being a Boolean combinatin of $\Sigma^{(n)}_1(M)$-relations.
+  \end{enumerate}
+  By our induction hypothesis and the fact that every $\Sigma^{(n)}_1(M)$-relation is the specialization of a $\Sigma^{(n)}_1(M)$ with arguments of type $\le n$, we obtain that
+  \[
+    R(F^{0}(\vec{y}), \ldots, F^{n}(\vec{y}), \vec{x}^{n+1})
+  \]
+  is $\Sigma^{(n+1)}_1(M)$. But now
+  \[
+    R(F^{0}(\vec{y}), \ldots, F^{n+1}(\vec{y})) \equiv \exists
+    \vec{x}^{n+1} \colon F^{n+1}(\vec{y}) \wedge R(F^{0}(\vec{y}),
+    \ldots, F^{n}(\vec{y}), \vec{x}^{n+1})
+  \]
+  is $\Sigma^{(n+1)}_1(M)$. \\
+  Note that this transformation only depends on the formulae defining
+  $R, F^0, \ldots, F^{n+1}$ and not on $M$, which yields the uniformity we
+  claimed.
+\end{proof}
+
+\begin{corollary} \label{cor:closure under functions}
+  Let $n < \omega$, $1 \le l < \omega$ and
+  $R(\vec{x}^{0}, \ldots, \vec{x}^n)$ be a
+  $\Sigma^{(n)}_l(M)$-relation. Let $F^0, \ldots, F^{n}$ be such that
+  for all $i \le n$ $F^i(\vec{x}^{0}, \ldots, \vec{x}^{(n)})$ is a
+  partial $\Sigma^{(i)}_1(M)$-function to $H^i_{M}$. Then
+  \[
+    R(F^{0}(\vec{x}^{0}, \ldots, \vec{x}^{n}), \ldots,
+    F^{n}(\vec{x}^{0}, \ldots, \vec{x}^n))
+  \]
+  is (uniformly) a $\Sigma^{(n)}_l(M)$-relation.
+\end{corollary}
+
+\begin{corollary}
+  Let $R(x^{i_{0}}, \ldots, x^{i_l})$ be a
+  $\Sigma^{(n)}_l(M)$-relation with $1 \le l < \omega$ and
+  $i_0, \ldots, i_k \le n < \omega$. Then there is a
+  $\Sigma^{(n)}_l(M)$-relation $R^{*}(x^{0}, \ldots, x^0)$ with the
+  same graph as $R$
+\end{corollary}
+
+\begin{proof}
+  Let $R^{**}$ be the result of replacing each $x^{i_0}$ with $x^{0}$
+  in $R$. For $j \le k$ let $F^j$ be the partial
+  $\Sigma^{i_j}_1(M)$-function to $H^{i_j}_{M}$ defined by
+  \[
+    \phi^{j}(x^{0}, y^{i_{l}}) \equiv x^{0} = y^{i_{j}}.
+  \]
+  Then $R^{**}(F^{i_{0}}(x^{0}), \ldots, F^{i_{k}}(x^{0}))$ is a
+  $\Sigma^{(n)}_l(M)$-relation with the same graph as $R$.
+\end{proof}
+
+\begin{definition}
+  Let $n < \omega$.  The \emph{good $\Sigma^{(n)}_1(M)$-functions}
+  consists of the smallest class $\mathcal{G}^{(n)}_1$ such that
+  \begin{enumerate}
+  \item Every partial $\Sigma^{(i)}_1(M)$-function
+    $F(x^{i_{0}}, \ldots, x^{i_{k}})$ to $H^i_M$ with
+    $i_0, \ldots, i_k, i \le n$ is in $\mathcal{G}^{(n)}_{1}$ and
+  \item $\mathcal{G}^{(n)}_1$ is closed under composition, i.e. if
+    $F(x^{i_{0}}, \ldots, x^{i_k})$ is in $\mathcal{G}^{(n)}_1$ and
+    $G(\vec{z})$ is a function to $H^{i_j}_M$ for some $j \le k$ in
+    $\mathcal{G}^{(n)}_1$, then
+    \[ F(x^{i_{0}}, \ldots, x^{i_{j-1}}, G(\vec{z}), x^{i_{j+1}},
+      \ldots, x^{i_{k}})
+    \] is in $\mathcal{G}^{(n)}_{1}$.
+  \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+  Let $n < \omega, 1 \le l < \omega$, $i_0, \ldots, i_k \le n$ and
+  $R(x^{i_{0}}, x^{i_k})$ be a $\Sigma^{(n)}_l(M)$-relation. If, for
+  $j \le k$, $F_j(\vec{z})$ is a good $\Sigma^{(n)}_1(M)$-function to
+  $H^{i_j}_M$, then
+  \[
+    R(F_{0}(\vec{z}), \ldots, F_n(\vec{z}))
+  \]
+  is $\Sigma^{(n)}_l(M)$.
+\end{lemma}
+
+\begin{proof}
+  Repeated application of \autoref{cor:closure under functions}.
+\end{proof}
+
+We are now ready to prove one of the main pillars of basic
+$\Sigma^{*}$ fine structure:
+
+\begin{theorem}[$\Sigma^{(n)}_{1}$-Uniformization]
+  Let $n < \omega$ and $R(\vec{x}^{0}, \ldots, \vec{x}^{n}, y^n)$ be a
+  $\Sigma^{(n)}_1(M)$-relation. Then there is a partial
+  $\Sigma^{(n)}_1(M)$-function $F$ to $H^n_M$ such that
+  \begin{enumerate}
+  \item $\dom(F) = \{ \vec{x} \mid \exists y^{n} R(\vec{x}, y^{n}) \}$ and
+  \item
+    $\forall \vec{x} ( \exists y^{n} R(\vec{x}, y^{n}) \implies
+    R(\vec{x}, F(\vec{x})))$
+  \end{enumerate}
+  Moreover, $F$ can be chosen to have a uniform definition in $R$'s
+  definition.
+\end{theorem}
+
+\begin{proof}
+  Recall that
+  \[
+    R_{\vec{x}} := \{ (\vec{x}^{n}, y^{n}) \mid R(\vec{x}^{0}, \ldots,
+    \vec{x}^{n}, y^{n}) \}
+  \]
+  is uniformly
+  $\Sigma_1(M^{n, (\vec{x}^{0}, \ldots, \vec{x}^{n-1})})$. Let
+  $i < \omega$ be such that $\phi_i$ defines $R_{\vec{x}}$ and let
+  \[
+    F(\vec{x}^{0}, \ldots, \vec{x}^{n}) := h_{M^{n, (\vec{x}^{0},
+        \ldots, \vec{x}^{n-1})}}(i, \vec{x}^{n}).
+  \]
+  Since $h_{M^{n, (\vec{x}^{0}, \ldots, \vec{x}^{n-1})}}$ is uniformly
+  $\Sigma_1(M^{n, (\vec{x}^{0}, \ldots, \vec{x}^{n-1})})$, we have
+  that $F$ is $\Sigma^{(n)}_1(M)$ and clearly $F$ uniformizes $R$.
+\end{proof}
+
+\begin{remark}
+  In these notes, I don't cover the definition of
+  $Q^{(n)}$-formulae. Consult Zeman's book.
+\end{remark}
+
+\begin{lemma} \label{lemma:Skolem functions}
+  Let $n < \omega$. There is a uniform good $\Sigma^{(n)}_{1}(M)$ function
+  \[
+    F \colon H^{n+1}_{M} \times H^{0}_{M} \to H^{0}_{M}
+  \]
+  such that for all $r \in R^{n+1}_{M}$
+  \[
+    F_{r} \colon H^{n+1}_{M} \to M, x^{n+1} \mapsto F(x^{n+1}, p)
+  \]
+  is surjective.
+\end{lemma}
+
+\begin{proof}
+  By induction on $n < \omega$.
+  \begin{itemize}
+  \item[$n=0$ :] Let
+    \[
+      F \colon H^{1}_{M} \times H^{0}_{M} \to H^{0}_{M}, (w,p) \mapsto
+      h_{M}(w(0),(w(1), p(0))).
+    \]
+  \item[$n \mapsto n+1$ :] Let
+    \[
+      G \colon H^{n+1}_{M} \times H^{0}_{M} \to H^{0}_{M}
+    \]
+    be as above. Define
+    \[
+      F \colon H^{n+1}_{M} \times H^{0}_{M} \to H^{0}_{M}, (w,p)
+      \mapsto G(h_{M^{n, p \restriction n}}(w(0), (w(1), p(n))), p \restriction n).
+    \]
+    Here we let $w(k), p(k), p \restriction k$, $k < \omega$ be the
+    usual interpretation for functions if $w,p$ are functions whose
+    domain contains $k + 1$ and otherwise we define them to be
+    $\emptyset$.
+  \end{itemize}
+\end{proof}
+
+\begin{exercise}
+  Verify that the functions defined above are as desired.
+\end{exercise}
+
+Hint: Recall that if $r \in R^{n+1}_M$ then
+$r \restriction n \in R^{n}_M$ and
+$r(n) \in R_{M^{n, r \restriction n}}$.
+
+\begin{definition}
+  For $p \in \Gamma^{n}_{M}$ let
+  \begin{enumerate}
+    \item $h^{n,p}_{M} := h_{M^{n,p}}$ and
+    \item $\tilde{h}^{n}_{M}$ be uniform good
+      $\Sigma^{(n-1)}_{1}(M)$-function given nesting Skolem functions
+      of the $i$-th projecta as in \autoref{lemma:Skolem functions},
+      i.e.
+      \[
+        \tilde{h}^{1}_{M}(w, p) := h_{M}(w(0), (w(1), p(0)))
+      \]
+      and
+      \[
+	\tilde{h}^{n+1}_{M}(w, p) := h^{n}_{M}( h_{M^{n, p
+            \restriction n}}(w(0), (w(1), p(n))), p \restriction n).
+      \]      
+    \end{enumerate}
+\end{definition}
+\begin{remark}
+  $h^{n+1}_{M}$ is a uniformly $\Sigma^{(n)}_{1}(M)$-function and if
+  $r \in R^{n+1}_{M}$, then every $x \in M$ is of the form
+  $\tilde{h}^{n+1}(z, r)$ for some $z \in H^{n+1}_{M}$. In fact, we
+  can choose $z \in \omega \rho^{n+1}_{M}$.
+\end{remark}
+
+\begin{corollary} \label{cor:definability via very good parameters}
+  Let $1 \le n < \omega$ and $r \in R^{n}_{M}$. Then every
+  $A \subseteq H^{n}_{M}$ which is $\boldsymbol{\Sigma}^{n}_{1}(M)$ is
+  $\boldsymbol{\Sigma}_{1}(M^{n,r})$.
+\end{corollary}
+
+\begin{proof}
+  We already know that $\boldsymbol{\Sigma}_1(M^{n,r}) \subseteq \boldsymbol{\Sigma}^{(n)}_{1}(M)$. \\
+
+  Conversely let
+  \[
+    A = \{ x \in H^{n}_{M} \mid M \models \phi[x, q] \}
+  \]
+  for some $\Sigma^{(n)}_{1}$-formula $\phi$ and some $q \in M$. Fix
+  $\xi < \omega \rho^{n}_{M}$ such that
+  $q = \tilde{h}^{n}_{M}(\xi, r)$. Then
+  \[
+    A(x^{n}) \iff M \models \phi[x^{n}, \tilde{h}^{n}_{M}(\xi^{n}, r^{0})].
+  \]
+  Since $\tilde{h}^{n}(y^{n}, z^{0})$ is a good
+  $\Sigma^{(n-1)}_{1}(M)$-function (and thus a good
+  $\Sigma^{(n)}_{1}(M)$-function), this witnesses that $A$ is
+  $\Sigma^{(n)}_{1}(M)$ in parameters $\xi, r$ and hence
+  $\boldsymbol{\Sigma}_{1}(M^{n,r})$ (by the characterization of
+  $\Sigma^{(n)}_{l}(M)$ subsets of $H^{n}_{M}$ as
+  $\Sigma_{l}(M^{n,r})$ relations in $\Sigma^{n-1}_{1}(M)$
+  predicates).
+\end{proof}
+
+\begin{corollary}
+  Let $n < \omega$ and $r \in R^{n}_{M}$. Then
+  $\rho^{n+1}_{M} = \rho_{M^{n,r}}$.
+\end{corollary}
+
+\begin{proof}
+  By definition $\rho^{n+1}_{M} \le \rho_{M^{n,r}}$, hence it suffices
+  to show the converse. \\
+  Let $q \in P^{n+1}_{M}$ and $A$ be $\Sigma^{(n)}_{1}(M)$ in $q$ such
+  that $A \cap \omega\rho^{n+1}_{M} \not \in M$. By
+  \autoref{cor:definability via very good parameters}, $A$ is
+  $\boldsymbol{\Sigma_{1}}(M^{n,r})$, so that
+  $\rho_{M^{n,r}} \le \rho^{n+1}_{M}$.
+\end{proof}
+
+\begin{corollary}
+  Let $r \in R^{n}_{M}$ and $m \le n$. Then
+  \begin{itemize}
+  \item $\rho^{n}_{M} = \rho^{n-m}_{M^{m, r \restriction m}}$ and
+  \item $M^{n, r} = (M^{m, r \restriction m})^{n-m, s}$, where
+    $s \colon n-m \to M$ is given by $s(i) := r(m+i)$.
+  \end{itemize}
+\end{corollary}
+
+\begin{proof}
+  By induction on $n-m$ and the two preceeding corollaries.
+\end{proof}
+
+\begin{exercise}
+  Let $r,s \in R^{n}_{M}$. Then
+  \[
+    \boldsymbol{\Sigma}_{1}(M^{n,r}) =
+    \boldsymbol{\Sigma}_{1}(M^{n,s}).
+  \]
+\end{exercise}
+
+\begin{remark}
+  In these notes, I don't cover functionally absolute definitions of
+  good $\Sigma^{(n)}_1(M)$-functions. Consult Zeman's book.
+\end{remark}
+
+\begin{lemma} \label{lemma:definability in very good parameters}
+  Let $r \in R^{n}_{M}$. Then
+  $\boldsymbol{\Sigma}_{l}(M) \subseteq \Sigma^{(n)}_{l}(M)$ for every
+  $l \ge 1$.
+\end{lemma}
+
+\begin{proof}
+  We will prove the result for $l = 1$. The general case follows by a
+  straightforward induction. Let $\phi$ be a $\Sigma_{0}$ formula, $q \in M$ and
+  \[
+    A = \{ a \in M \mid M \models \exists x \phi[x,a,q] \}.
+  \]
+  Fix $\xi \in \omega \rho^{n}_{M}$ such that
+  $q = \tilde{h}^{n}(\xi, r)$. Then
+  \[
+    A = \{ a \in M \mid M \models \exists x^{(n)} \phi [
+    \tilde{h}^{n}(x^{n}, r^{0}), a^{0}, \tilde{h}^{n}(\xi^{n}, r^{0})]
+    \}
+  \]
+  is $\Sigma^{(n)}_{1}(M)$.
+\end{proof}
+
+\begin{corollary}
+  Let $r \in R^{n}_{M}$. Then
+  $\boldsymbol{\Sigma}_{< \omega}(M) = \boldsymbol{\Sigma}^{(n)}_{<
+    \omega}(M)$.
+\end{corollary}
+
+\begin{proof}
+  \autoref{lemma:definability in very good parameters} yields
+  $\boldsymbol{\Sigma}_{< \omega}(M) \subseteq
+  \boldsymbol{\Sigma}^{(n)}_{< \omega}(M)$. For the converse just note
+  that every $\Sigma^{(n)}_{l}$-formulae can be expressed as a
+  $\Sigma_{l}$-formula (in parameters) by replacing each occurance of
+  the variable $x^{i}$ with $x \in H^{i}_{M}$ if
+  $\omega\rho^{i}_{M} < o(M)$ or with $x$ if
+  $\omega \rho^{i}_{M} = o(M)$.
+\end{proof}
+
+\subsection{Standard Parameters}
+
+\todo[inline]{first draft}
+\begin{lemma}
+  $h_{M}" [o(M)]^{< \omega} = M$.
+\end{lemma}
+
+\begin{proof}
+  Let $X := h_{M}" [o(M)]^{<\omega}$. Since $X$ is closed under
+  pairing, we have $X \prec_{1} M$. Let
+  \[
+    N \overset{\pi}{\cong} X \prec_{1} M
+  \]
+  Be the Mostowski collapse. Since being an acceptable
+  $\mathcal{J}$-structure is a $Q$-property, we have that $N$ is an
+  acceptable $\mathcal{J}$-structure and clearly
+  $\pi^{-1} \restriction o(M) = \id$. Since there is, for acceptable
+  $\mathcal{J}$-structures $K$, a uniform lightface
+  $\Sigma_{1}$-definable surjection
+  $f^{K} \colon [o(M)]^{<\omega} \twoheadrightarrow K$, it follows
+  that $N = M$.
+\end{proof}
+
+\begin{lemma}
+  Let $A$ be $\Sigma^{(n)}_1(M)$ in the parameter $p \in M$. Then
+  there is some $p' \in [o(M)]^{<\omega}$ such that $A$ is
+  $\Sigma^{(n)}_{1}(M)$ in $p'$.
+\end{lemma}
+
+\begin{proof}
+  Fix $\phi \in \Sigma^{(n)}_{1}(M)$ such that
+  \[
+    A = \{ a \in M \mid M \models \phi[a,p] \}.
+  \]
+  Let $p' \in [o(M)]^{< \omega}$ be such that $p = h_{M}(p')$. Then
+  \[
+    A = \{ a \in M \mid M \models \exists x^{(0)} \colon
+    \underbrace{h_{M}(p') = x^{(0)}}_{\Sigma^{(0)}_{1}} \wedge \phi[a,
+    x^{0}] \}.
+  \]
+  is $\Sigma^{(n)}_{1}(M)$ in $p'$.
+\end{proof}
+
+\begin{convention}
+  Let $p \in P^{(n)}_{M}$. If, for every $i \in \dom(i)$, $p(i)$ is a
+  finite set of ordinals, we will identify $p$ with
+  $\bigcup \ran(p) \in [\ord]^{<\omega}$. And we let
+  $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ be the collection of these
+  good parameters.
+\end{convention}
+  
+By the previous lemma we may restrict ourselves to good parameters
+which are finite sets of ordinals, i.e. to
+$P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
+
+\begin{definition}
+  Let $a,b \in [\ord]^{<\omega}$.
+  \begin{enumerate}
+  \item $a \Delta b := (a \setminus b) \cup (b \setminus a)$ and
+  \item $a <^{*}b : \iff \max(a \Delta b) \in b$.
+  \end{enumerate}
+\end{definition}
+
+\begin{exercise}
+  Let $a,b \in [\ord]^{<\omega}$. The following are equivalent
+
+  \begin{enumerate}
+  \item $a <^{*} b$,
+  \item
+    $\exists \xi \in b \setminus a \colon b \setminus (\xi + 1) = a
+    \setminus (\xi + 1)$,
+    \item $\vec{a} <_{\lex} \vec{b}$,
+    \end{enumerate}
+    where
+    $\begin{Bmatrix}
+      \vec{a} \\
+      \vec{b}
+    \end{Bmatrix}$
+    is the strictly decreasing enumeration
+    of $\begin{Bmatrix}
+      a \\
+      b
+    \end{Bmatrix}$.
+  \end{exercise}
+
+  \begin{definition}
+    A definable, binary relation $R$ is \emph{set-like} if for all $y$
+    \[
+      R_{y} := \{ x \mid (x,y) \in R \} 
+    \]
+    is a set.
+  \end{definition}
+
+  \begin{exercise}
+    $<^{*}$ is a set-like strict, $\Sigma_{0}$-definable well-order of
+    $[\ord]^{< \omega}$.
+  \end{exercise}
+
+  (Hint: The only tricky bit is to show that $<^{*}$ is
+  well-founded. So, suppose it isn't. Fix a set
+  $A \subseteq [\ord]^{<^{*}}$ with no $<^{*}$-minimal
+  element. Recursively construct a strictly decreasing sequence
+  $(\xi_{n} \mid n < \omega)$ via
+  $\xi_{0} := \min \{ \max(a) \mid a \in A \}$ and
+  $\xi_{n+1} := \min \{ \max(a \cap \xi_{n}) \mid a \in A \wedge a
+  \setminus \xi_{n} = \{ \xi_{0}, \ldots, \xi_{n} \}\}$. Verify that
+  this construction never breaks down (i.e. $\xi_{n+1} \neq 0$).)
+
+  \begin{definition}
+    The $<^{*}$-least $p \in P^{(n)}_{M} \cap [o(M)]^{< \omega}$,
+    denoted by $p_{M,n}$, is called the \emph{$n$-th standard
+      parameter of
+      $M$}. \footnote{Zeman calls $p_{M,n}$ the standard parameter above $\omega \rho^{n}_{M}$.} \\
+    The $<^{*}$-least $p \in P^{*}_{M} \cap [o(M)]^{<\omega}$ is
+    called the \emph{(ultimate) standard parameter of $M$}.
+  \end{definition}
+
+    \begin{notation}
+    \begin{enumerate}
+    \item If $a \in [o(M)]^{< \omega}$ we set
+      \begin{enumerate}
+      \item $a^{n} := a \cap [ \omega\rho^{n+1}_{M}, \omega\rho^{n}_{M}]$ and
+      \item $a \restriction n = a \setminus \omega\rho^{n}_{M}$.
+      \end{enumerate}
+    \end{enumerate}
+  \end{notation}
+  
+  \begin{exercise} \label{exercise: manipulation of standard parameters}
+    Let $p \in [o(M)]^{<\omega}$. Then
+    \begin{enumerate}
+    \item
+      $p \in P^{n}_{M} \implies p \restriction (n-1) \in P^{n-1}_{M}$
+      and $p^{n-1} \in P_{M^{n-1}, p \restriction n-1}$,
+    \item $p \restriction (n-1) \in P^{n-1}_{M}$,
+      $p^{n-1} \in P_{M^{n-1}, p \restriction n-1}$ and
+      $\omega\rho^{n}_{M} = \omega\rho_{M^{n-1, p \restriction n -1}}
+      \implies p \in P^{n}_{M}$.
+    \item
+      $r \in R^{n}_{M} \iff \forall i < n \colon r^{i} \in R_{M^{i, r
+          \restriction i}}$.
+    \end{enumerate}
+
+  \end{exercise}
+
+  \begin{corollary}
+    $p_{M,n} \setminus \omega\rho^{n}_{M} = \emptyset$.
+  \end{corollary}
+
+  \begin{proof}
+    $p_{M,n} \setminus \omega\rho^{n}_{M} \le^{*} p_{M,n}$ and by
+    \autoref{exercise: manipulation of standard parameters} we have
+    that $p_{M,n} \setminus \omega\rho^{n}_{M} \in P^{n}_{M}$.
+  \end{proof}
+
+  \begin{corollary} \label{corollary: lengthening standard parameters}
+    Let $r \in R^{n}_{M}$. Then $r$ can be lengthended to some
+    $p \in P^{n+1}_{M}$. If, in addtion, $r \in [o(M)]^{< \omega}$,
+    then $r$ can be lengthened to some
+    $p \in P^{n+1}_{M} \cap [o(M)]^{<\omega}$.
+  \end{corollary}
+
+  \begin{proof}
+    Let $p^{-} \in P_{M^{n, r}}$. Then, by \autoref{exercise:
+      manipulation of standard parameters},
+    $p := r ^{\frown} p^{-} \in P^{n+1}_{M}$. \\
+    If $r \in [o(M)]^{< \omega}$, pick
+    $p^{-} \in P_{M^{n, r}} \cap [o(M)]^{< \omega}$ and let
+    $p = r \cup p^{-}$.
+  \end{proof}
+
+  \begin{corollary}
+    Let $M$ be sound and $p \in P^{n}_{M}$. Then $p$ can be lengthened
+    to a $p^{*} \in P^{*}_{M}$. If, in addition,
+    $p \in [o(M)]^{<\omega}$, then $p$ can be lengthened to some
+    $p^{*} \in P^{*}_{M} \cap [o(M)]^{<\omega}$.
+  \end{corollary}
+
+  \begin{proof}
+    Let $k < \omega$ be such that
+    $\omega\rho_{M}^{\omega} = \omega \rho_{M}^{k}$. Now apply
+    \autoref{corollary: lengthening standard parameters} $k$
+    times.
+  \end{proof}
+
+  \begin{corollary}
+    Let $M$ be $n$-sound. Then
+    $p_{M, n-1} = p_{M,n} \restriction (n-1)$.
+  \end{corollary}
+
+  \begin{proof}
+    By \autoref{corollary: lengthening standard parameters} there is
+    some $q$ such that $p_{M, n-1} \cup q \in P^{n}_{M}$. Note that we
+    may pick $q \subseteq [\omega\rho^{n}_{M},
+    \omega\rho^{n-1}_{M})$. Now
+    $p_{M, n-1} = p_{M, n-1} \setminus \omega\rho^{n-1}_{M}$ and
+    $p_{M, n-1} \cup q \le^{*} p_{M,n}$. If
+    $p_{M, n-1} \cup q = p_{M,n}$, we are done. Otherwise fix
+    $\xi \in p_{M,n} \setminus p_{M, n-1} \cup q$ such that
+    \[
+      p_{M,n} \setminus (\xi + 1) = (p_{M, n-1} \cup q) \setminus (\xi
+      + 1).
+    \]
+    Since $p_{M,n} \restriction (n-1) \in P^{n}_{M}$ and hence
+    $p_{M,n} \restriction (n-1) \le^{*} p_{M, n-1}$, we must have that
+    $\xi \ge \omega\rho^{n-1}$ and thus
+    $p_{M, n-1} = p_{M,n} \restriction (n-1)$ as desired.
+  \end{proof}
+  
+  We are now ready to prove the main result of this section
+
+  \begin{theorem} \label{theorem: characterization of n-soundness}
+    $M$ is $n$-sound iff $p_{M,n} \in R^{n}_{M}$.
+  \end{theorem}
+
+  \begin{proof}
+    If $M$ is $n$-sound, then $p_{M,n} \in P^{n}_{M} = R^{n}_{M}$ and there is nothing to do. \\
+    Conversely, suppose that $n$ is minimal with
+    $p_{M,n} \in R^{n}_{M}$ but $M$ is not $n$-sound. We will derive a
+    contradiction via the downward extension of embeddings lemma: \\
+
+    Let $q = \min_{<^{*}} (P^{n}_{M} \setminus R^{n}_{M})$. Since
+    $p_{M,n} = \min_{<^{*}} P^{n}_{M}$, we have $p_{M,n} <^{*} q$. Let
+    $i < \omega$ be minimal such that
+    $(p_{M,n} \cap [\omega\rho^{i+1}_{M}, \omega\rho^{i}_{M})
+    =)p_{M,n}^{i} <^{*} q^{i}$.
+
+    \begin{claim}
+      $i = n-1$.
+      
+    \end{claim}
+
+    \begin{proof}
+      Suppose $i < n-1$. Consider the map
+      \[
+	\id \colon M^{n, q} \to M^{n, q}.
+      \]
+      By the downward extension of embeddings lemma there are unique
+      $\pi, \bar{M}, \bar{q}$ such that
+      \begin{enumerate}
+      \item $\pi \colon \bar{M} \to_{\Sigma^{(n)}_{1}} M$,
+      \item $\pi \restriction H^{n}_{M} = \id$,
+      \item $\pi(\bar{q}) = q$,
+      \item $\bar{q} \in R^{n}_{\bar{M}}$ and
+      \item $\bar{M}^{n, \bar{q}} = M^{n,q}$.
+      \end{enumerate}
+      By induction hypothesis
+      $p_{M,n} \restriction (i+1) = p_{M, i+1} \in R^{i+1}_{M}$. We
+      may thus fix a good $\Sigma^{(i)}_{1}(M)$-function and some
+      $z \in [\omega\rho^{i+1}_{M}]$ such that
+      $q^{i} = f(z, p_{M,n} \restriction i, p_{M,n}^{i})$. Since
+      $p_{M,n} \restriction i = q \restriction i$, this witnesses
+      \[
+	M \models \exists z^{i+1} \exists r^{i} <^{*} q^{i} \colon
+        z^{i+1}, r^{i} \in [\ord]^{<\omega} \wedge q^{i} = f(z^{i+1},
+        q \restriction i, r^{i}).
+      \]
+      This is a $\Sigma^{(i+1)}_{1}$-statement and thus preserved
+      downwards by $\pi$. Hence there is a finite set of ordinals
+      $\bar{z} \subseteq \omega\rho^{i+1}_{\bar{M}}$,
+      $\bar{r} \subseteq \omega\rho^{i+1}_{\bar{M}}$ such that
+      $\bar{q}^{i} = \bar{f}(\bar{z}, \bar{q} \restriction i
+      ,\bar{r})$, where $\bar{f}$ is the interpretation of $f$'s
+      $\Sigma^{(i)}_{1}$ definition over $\bar{M}$.  Let
+      $z = \pi(\bar{z})$, $r = \pi(\bar{r})$. Then
+      $q^{i} = f(z, q \restriction i, r)$. Now consider
+      \[
+	q^{*} := q \restriction i \cup r \cup z \cup (q \cap
+        \omega\rho^{i+1}_{M}).
+      \]
+      $q$ and $q^{*}$ can be translated into each other via a
+      $\Sigma^{(i)}_{1}(M)$ function, so that
+      $q^{*} \in P^{n}_{M} \restriction R^{n}_{M}$. On the other hand,
+      sincee $r < q^{i}$, $q^{*} <^{*} q$. This contradicts the fact
+      that $q = \min_{<^{*}} P^{n}_{M} \setminus R^{n}_{M}$.
+    \end{proof}
+    We may now run the same proof as for the claim, but for $i = n-1$,
+    to show that in fact $R^{n}_{M} = P^{n}_{M}$.
+  \end{proof}
+
+  \subsection{Two Applications to $L$}
+
+  \todo[inline]{first draft}
+
+  \begin{theorem} \label{theorem: L is sound}
+    For every $\alpha \in \ord$ $J_{\alpha}$ is acceptable and sound.
+  \end{theorem}
+
+  Before we can prove this, we need one more lemma about
+  $\Sigma^{(n)}_{1}$-definability:
+
+  \begin{lemma} \label{lemma: Sigma n+1 subsets of the n-th reduct}
+    Suppose $R^{n}_{M} \neq \emptyset$. If
+    $A \in \boldsymbol{\Sigma}_{n+1}(M) \cap \mathcal{P}(H^{n}_{M})$,
+    then $A$ is $\boldsymbol{\Sigma}^{(n)}_{1}(M)$.
+  \end{lemma}
+
+  \begin{proof}
+    For $n = 0$ this is trivial. We'll provide the proof for $n = 1$
+    and leave the induction step as an exercise. \\
+    Let $\phi$ be a $\Sigma_{0}$-formula, $\vec{p} \in M$ such that
+    \[
+      A = \{ a \mid M \models \exists x \phi[a,x,\vec{p}] \}.
+    \]
+    Now let $r \in R^{1}_{M}$ and fix $\xi \in \omega\rho^{1}_{M}$
+    such that $\vec{p} = h_{M}(\xi, r)$. We have
+    \begin{align*}
+      A & = \{ a \mid M \models \exists x^{1} \phi[a^{1}, h_{M}(x^{1}, r^{0}), h_{M}(\xi^{1}, r^{0})] \} \\
+      &= \{ a \mid M^{1, r} \models \exists x \phi^{*}[a, x, \xi] \}
+    \end{align*}
+    where $phi^{*}$ is the natural $\Sigma_{1}$-formula corresponding
+    to $\phi$. \footnote{Recall that $\phi$ is $\Sigma_{1}$ in the
+      language $\{ \in, A^{1, r}_{M} \}$} Since $A$ is
+    $\Sigma_{1}(M^{1,r})$, it is $\Sigma^{(1)}_{1}(M)$.
+  \end{proof}
+
+  \begin{exercise}
+    Provide the induction step.
+  \end{exercise}
+
+  (Hint: Let $r \in R^{(n+1)}_{M}$. Then $r(0) \in R^{1}_{M}$ and
+  $H^{n+1}_{M} = H^{n}_{M^{1,r(0)}}$. Furthermore recall that
+  $M^{r(0)}$ has a very good parameter $r^{*} \in R^{n}_{M^{1,r(0)}}$
+  such that $r = r(0) ^{\frown} r^{*}$. Use the induction hypothesis
+  on $M^{1, r(0)}$.)
+
+  \begin{proof}[Proof of \autoref{theorem: L is sound}]
+    We proceed by induction on $\alpha$: \\
+    First let $\alpha = 1$: $J_{1} = (V_{\omega}; \in)$ is trivially
+    acceptable and since $V_{\omega}$ is the image of $\omega$ under
+    the Ackermann coding function (without parameter), it is also
+    sound.
+
+    Suppose $J_{\beta}$ is acceptable and sound for all
+    $\beta < \alpha$. We will first show that $J_{\alpha}$ is
+    acceptable. If $\alpha$ is a limit ordinal, there is nothing to
+    do. So suppose that $\alpha = \beta + 1$. It suffices
+    to show that
+    \[ (\exists \tau < \beta \exists a \subseteq \tau a \in
+      J_{\beta+1} \setminus J_{\beta}) \implies \exists f \in
+      J_{\beta + 1} f \colon \tau \twoheadrightarrow J_{\beta}.
+    \]
+    Fix $a, \tau$ as above with $\tau$ minimal.
+    \begin{claim}
+      $\tau = \omega \rho^{\omega}_{J_{\beta}}$.
+      \end{claim}
+
+      \begin{proof}
+        Let $n < \omega$ be such that
+        $\omega \rho^{\omega}_{J_{\beta}} = \omega
+        \rho^{n}_{J_{\beta}}$. Then there is some
+        $\boldsymbol{\Sigma}^{(n-1)}_{1}(M)$-subset of
+        $\omega \rho^{\omega}_{J_{\beta}}$ not in $J_{\beta}$. Since
+        $\boldsymbol{\Sigma}_{<\omega}(J_{\beta}) \subseteq
+        J_{\beta+1}$, this new subset is in $J_{\beta+1}$ and hence
+        witnesses that $\tau \leq \omega\rho^{\omega}_{J_{\beta}}$. \\
+        Conversely, let $a \subseteq \tau$ be
+        $\boldsymbol{\Sigma}_{n}(J_{\beta})$. Since
+        $\tau \le \omega\rho^{n}_{J_{\beta}}$, we have that
+        $a \subseteq H^{n}_{J_{\beta}}$. Since $J_{\beta}$ is sound,
+        we have $R^{n}_{J_{\beta}} \neq \emptyset$. And hence, by
+        \autoref{lemma: Sigma n+1 subsets of the n-th reduct}, we have
+        that $a$ is $\boldsymbol{\Sigma}^{(n-1)}_{1}(J_{\beta})$,
+        witnessing that $\omega\rho^{\omega}_{J_{\beta}} \le \tau$.
+      \end{proof}
+      Now, since $J_{\beta}$ is sound, there is a
+      $\boldsymbol{\Sigma}^{*}(J_{\beta})$ function
+      \[
+        f \colon \omega\rho^{\omega}_{J_{\beta}} \twoheadrightarrow
+        J_{\beta}.
+      \]
+      But $f \in \boldsymbol{\Sigma}_{<\omega}(J_{\beta})
+      \subseteq J_{\beta+1}$. Thus $J_{\beta+1}$ is acceptable. \\
+
+      Let us now verify that $J_{\alpha}$ is sound: \\
+
+      By \autoref{theorem: characterization of n-soundness}, it
+      suffices to show that $p_{n, J_{\alpha}} \in R^{n}_{J_{\alpha}}$
+      for all $n < \omega$. Suppose this is false and let $n < \omega$
+      be minimal such that
+      $p :=p_{n,J_{\alpha}} \not \in R^{n}_{J_{\alpha}}$. Let $a$ be
+      $\Sigma^{(n-1)}_{1}(M)$ in $p$ such that
+      $a \cap \omega\rho^{n}_{J_{\alpha}} \not \in J_{\alpha}$. Once
+      again, consider
+      \[
+	\id \colon (H^{n}_{J_{\alpha}}; \in, A^{n, p}_{J_{\alpha}}) \to
+        (H^{n}_{J_{\alpha}}; \in, A^{n, p}_{J_{\alpha}}).
+      \]
+      By the downward extension of embeddings lemma there are unique
+      $\pi, \bar{M}, \bar{p}$ such that
+      \begin{enumerate}
+      \item $\pi \colon \bar{M} \to_{\Sigma^{(n)}_{1}} J_{\alpha}$,
+      \item $\pi \restriction H^{n}_{M} = \id$,
+      \item $\pi(\bar{p}) = p$,
+      \item $\bar{p} \in R^{n}_{\bar{M}}$ and
+      \item
+        $\bar{M}^{n, \bar{q}} = (H^{n}_{J_{\alpha}}; \in, A^{n,
+          p}_{J_{\alpha}})$.
+      \end{enumerate}
+      By condensation we have that $\bar{M} = J_{\bar{\alpha}}$ for
+      some $\bar{\alpha} \leq \alpha$.
+
+      \begin{claim}
+        $\bar{\alpha} = \alpha$.
+      \end{claim}
+
+      \begin{proofblack}
+        Let $\bar{a}$ be the $\Sigma^{(n-1)}_{1}(J_{\bar{\alpha}})$
+        set in $q$ via the definition for $a$, call it $\phi$. Let
+        $\xi < a \cap \omega\rho^{n}_{J_{\alpha}} =
+        \omega\rho^{n}_{J_{\bar{\alpha}}}$. We have
+        \begin{align*}
+          \xi \in \bar{a} & \iff J_{\bar{\alpha}} \models \phi[\xi, q] \\
+                          & \iff J_{\alpha} \models \phi[\underbrace{\pi(\xi)}_{= \xi}, \underbrace{\pi(q)}_{= p}] \\
+                          & \iff \xi \in a,
+        \end{align*}
+        i.e.
+        $a \cap \omega\rho^{n}_{J_{\alpha}} = \bar{a} \cap
+        \omega\rho^{n}_{J_{\alpha}}$. If $\bar{\alpha} < \alpha$, then
+        $\bar{a} \cap \omega\rho^{n}_{J_{\alpha}} \in
+        J_{\bar{\alpha}+1} \subseteq J_{\alpha}$, which is
+        absurd. Hence $\bar{\alpha} = \alpha$.
+      \end{proofblack}
+
+      Since $\pi(q) = p$, we have $q \le^{*} p$. On the other hand $p$
+      is the $<^{*}$-least good $n$th parameter and thus $p = q$. By
+      $q \in R^{n}_{J_{\bar{\alpha}}} =
+      R^{n}_{J_{\alpha}}$. Contradiction!
+  \end{proof}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
