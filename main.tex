@@ -106,7 +106,7 @@ $\mathcal{J}$-structures, $k,l,m,n < \omega$.
 \setcounter{subsection}{7}
 \subsection{Substitution and Good Functions}
 
-\todo[inline]{First Draft}
+\todo[inline]{Talk 1, first draft}
 
 \begin{problem}
   $\Sigma^{(n)}_1(M)$-relations are not necessarily closed under
@@ -467,7 +467,7 @@ $r(n) \in R_{M^{n, r \restriction n}}$.
 
 \subsection{Standard Parameters}
 
-\todo[inline]{first draft}
+\todo[inline]{Talk 2, first draft}
 \begin{lemma}
   $h_{M}" [o(M)]^{< \omega} = M$.
 \end{lemma}
@@ -746,8 +746,6 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
 
   \subsection{Two Applications to $L$}
 
-  \todo[inline]{first draft}
-
   \begin{theorem} \label{theorem: L is sound}
     For every $\alpha \in \ord$ $J_{\alpha}$ is acceptable and sound.
   \end{theorem}
@@ -892,9 +890,108 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
       is the $<^{*}$-least good $n$th parameter and thus $p = q$. By
       $q \in R^{n}_{J_{\bar{\alpha}}} =
       R^{n}_{J_{\alpha}}$. Contradiction!
-  \end{proof}
+    \end{proof}
+
+
+    \section{More on Downward Extensions of Embeddings}
+    \todo[inline]{Talk 3, first draft}
+    
+    \begin{definition}
+      Let $M = (|M|; A_{1}, \ldots, A_{n})$ and $X \subseteq |M|$. Then
+      \[
+	M | X := (|M| \cap X; A_{1} \cap X, \ldots, A_{n} \cap X).
+      \]
+    \end{definition}
+
+    \begin{lemma}
+      Let $M = (J^{A}_{\alpha}; \in, A, B)$ be an acceptable structure
+      and let $X \subseteq M$ be closed under good
+      $\Sigma^{(n)}_{1}(M)$-functions with
+      $X \cap P^{n}_{M} \neq \emptyset$. Let $\bar{M}$ be the
+      transitive collapse of $X$ and let $\sigma$ be the inverse of
+      the collapsing map. Then
+      \[
+	\sigma \colon \bar{M} \to_{\Sigma^{(n)}_{1}} M.
+      \]
+    \end{lemma}
+
+    \begin{proof}
+      $\vec{x} \in X$ and let $\phi$ be a $\Sigma^{(n)}_{0}$-formula
+      such that
+      \[
+	M \models \exists y^{n} \phi[y^{n}, \vec{x}].
+      \]
+      By $\Sigma^{(n)}_{1}(M)$-uniformization, leveraging that $X$ is
+      closed under good $\Sigma^{(n)}_{1}(M)$-functions, we obtain
+      that
+      \[
+	M | X \models \exists y^{n} \phi[y^{n}, \vec{x}]
+      \]
+      and thus that $M | X \prec_{\Sigma^{(n)}_{1}} M$. Now, for
+      $i \le n$, define
+      \begin{enumerate}
+      \item $H^{i} := \sigma " H^{i}_{M}$ and
+      \item $\omega\rho^{i} := H^{i} \cap \ord$.
+      \end{enumerate}
+      We establish a pseudo-interpretation of
+      $\Sigma^{(n)}_{1}$-formulae over $\bar{M}$ by declaring that
+      variables of type $i$ ($i \le n$) range over $H^{i}$. For this
+      pseudo-interpretation we obtain
+      \[
+	\sigma \colon \bar{M} \to_{\Sigma^{(n)}_{1}} M
+      \]
+      as above. It now suffices to show
+      \begin{claim}
+        $\omega\rho^{i}_{\bar{M}} = \omega\rho^{i}$ for all $i \le n$.
+      \end{claim}
+
+      \begin{proofblack}
+        \todo[inline]{provide proof}
+      \end{proofblack}
+    \end{proof}
+
+    \begin{lemma}
+      Let
+      \[
+	\sigma \colon \bar{M} \to_{\Sigma^{(n)}_{1}} M
+      \]
+      be such that $\sigma \restriction \omega\rho^{n+1}_{M} = id$ and
+      $\ran(\sigma) \cap P^{*}_{M} \neq \emptyset$. Then $\sigma$ is
+      $\Sigma^{*} (= \bigcup_{k <
+        \omega}\Sigma^{(k)}_{1})$-elementary.
+    \end{lemma}
+
+    \begin{proof}
+      \todo[inline]{provide proof}
+    \end{proof}
+
+    \section{Witnesses and Solidity}
+
+    \begin{problem}
+      Let
+      \[
+	\sigma \colon \bar{M} \to_{\Sigma^{(n)}_{1}} M
+      \]
+      \footnote{In a typical application $\sigma$ will be the
+        canonical embedding associated to a fine structural ultrapower
+        of $\bar{M}$.} Without further restrictions we might have that
+      $p_{M, n+1} <^{*} \sigma(p_{\bar{M}, n+1})$. \\
+      In general we might have that
+      \[
+	p_{M, n+1} <^{*} \sigma(p_{\bar{M}, n+1}),
+      \]
+      i.e. that standard parameters are moved incorrectly by fine
+      structural maps. In this section we introduce the concept of
+      solidity that, provided it holds for $\bar{M}$, implies that
+      standard parameters will be moved correctly.
+    \end{problem}
+
+    \begin{remark}
+      Fine structure theory and it's later refinement
+      $\Sigma^{(*)}$-theory was developed by Ronald Jensen. The
+      concept of solidity, however, is due to Bill Mitchell and later,
+      independently, Sy Friedman.
+    \end{remark}
+    
 \end{document}
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: t
-%%% End:
+
