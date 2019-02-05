@@ -10,7 +10,8 @@
 \usepackage{hyperref}
 %\usepackage[capitalize,nameinlink]{cleveref}
 \usepackage{amsthm}
-%\usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
+% \usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
+% \usepackage[printsolution=true]{exercises}
 
 
 % Theorem Environments
@@ -970,12 +971,11 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
     \begin{problem}
       Let
       \[
-	\sigma \colon \bar{M} \to_{\Sigma^{(n)}_{1}} M
-      \]
-      \footnote{In a typical application $\sigma$ will be the
+	\sigma \colon \bar{M} \to_{\Sigma^{(n)}_{1}} M \footnote{In a typical application, $\sigma$ will be the
         canonical embedding associated to a fine structural ultrapower
-        of $\bar{M}$.} Without further restrictions we might have that
-      $p_{M, n+1} <^{*} \sigma(p_{\bar{M}, n+1})$. \\
+        of $\bar{M}$.}
+      \]
+      
       In general we might have that
       \[
 	p_{M, n+1} <^{*} \sigma(p_{\bar{M}, n+1}),
@@ -992,6 +992,109 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
       concept of solidity, however, is due to Bill Mitchell and later,
       independently, Sy Friedman.
     \end{remark}
+
+    \section*{Bonus Exercises}
+
+    \begin{exercise}
+      Let $\pi \colon M \to N$ be $\Sigma^{*}$-elementary such that
+      $P^{*}_{N} \cap \ran(\pi) \neq \emptyset$. Then, for all $n < \omega$, either
+      \begin{enumerate}
+      \item $\omega\rho^{n}_{M} = o(M)$ and $\omega\rho^{n}_{N} = o(N)$ or
+      \item $\omega\rho^{n}_{M} < o(M)$ and
+        $\pi(\omega\rho^{n}_{M}) = \omega\rho^{n}_{N}$.
+      \end{enumerate}
+      
+    \end{exercise}
+    
+    % \begin{proof}
+    %   Let us adapt the convention, for this proof only, that
+    %   $\pi(o(M)) = o(N)$. \\
+    %   We proceed by induction on $n < \omega$. For $n = 0$ we have
+    %   $\omega\rho^{n}_{M} = o(M)$ and $\omega\rho^{n}_{N} = o(N)$. \\
+    %   Now assume that the claim holds for all $n$. \\
+    %   First we show that
+    %   $\omega\rho^{n+1}_{N} \le \pi(\omega\rho^{+1n}_{M})$. If
+    %   $\omega\rho^{n}_{M} = \omega\rho^{n+1}_{M}$ then
+    %   $\omega\rho^{n+1}_{N} \le \omega\rho^{n}_{N} =
+    %   \pi(\omega\rho^{n}_{M}) = \pi(\omega\rho^{n+1}_{M})$. Thus we
+    %   may assume that $\omega\rho^{n+1}_{M} < \omega\rho^{n}_{M}$. \\
+    %   Let $\phi$ be a $\Sigma^{(n)}_{1}$ formula and $p \in M$ such
+    %   that
+    %   \[
+    %     \{ \xi < \omega\rho^{n+1}_{M} \mid M \models \phi[\xi, p] \}
+    %     \not \in M
+    %   \]
+    %   Since $\omega\rho^{n+1}_{M} < \omega\rho^{n}_{M} \le o(M)$ and
+    %   $M$ is acceptable, it follows that
+    %   \[
+    %     \{ \xi < \omega\rho^{n+1}_{M} \mid M \models \phi[\xi, p] \}
+    %     \not \in H^{n}_{M}
+    %   \]
+    %   Consider
+    %   \[
+    %     A := \{ \xi < o(N) \mid N \models \phi[\xi, \pi(p)] \}.
+    %   \]
+    %   It suffices to show that
+    %   $A \cap \pi(\omega\rho^{n+1}_{M}) \not \in N$. \\
+    %   Suppose $A \cap \pi(\omega\rho^{n+1}_{M}) \in N$. Since
+    %   $\omega\rho^{n+1}_{M} < \omega\rho^{n}_{M}$, we have
+    %   $\pi(\omega\rho^{n+1}_{M}) < \pi(\omega\rho^{n}_{M}) =
+    %   \omega\rho^{n}_{N}$. Hence $A \cap \pi(\omega\rho^{n+1}_{M})$ is
+    %   a bounded subset of $H^{n}_{N}$ and thus, by acceptability and
+    %   the fact that either $\omega\rho^{n}_{N} = o(N)$ or
+    %   $\omega\rho^{n}_{N}$ is an $N$-cardinal, in $H^{n}_{N}$. It
+    %   follows that
+    %   \[
+    %     N \models \exists x^{n} \forall \xi \in
+    %     \pi(\omega\rho^{n+1}_{M}) \xi \in x^{n} \iff \phi[\xi,
+    %     \pi(p)].
+    %   \]
+    %   This is a $\Sigma^{(n)}_{1}$-statement and hence preserved downwards, i.e.
+    %   \[
+    %     M \models \exists x^{n} \forall \xi \in
+    %     \omega\rho^{n+1}_{M} \xi \in x^{n} \iff \phi[\xi,
+    %     \pi].
+    %   \]
+    %   But this witnesses that
+    %   \[
+    %     \{ \xi < \omega\rho^{n+1}_{M} \mid M \models \phi[\xi, p] \}
+    %    \in H^{n}_{M},
+    %   \]
+    %   Contradiction! Hence we do have that
+    %   $\omega\rho^{n+1}_{N} \le \pi(\omega\rho^{n+1}_{M})$. \\
+
+    %   Conversely let $p \in M$ be such that $\pi(p) \in P^{*}_{N}$ and
+    %   let $\phi$ be a $\Sigma^{(n)}_{1}$-formula such that
+    %   \[
+    %     \{ \xi < \omega\rho^{n+1}_{N} \mid N \models \phi[\xi, \pi(p)] \} \not \in N
+    %   \]
+    %   Suppose that $\pi(\omega\rho^{n+1}_{M}) < \omega\rho^{n+1}_{N}$. Then
+    %   \[
+    %     \{ \xi < \pi(\omega\rho^{n+1}_{M})\mid N \models \phi[\xi,
+    %     \pi(p)] \} \in N
+    %   \]
+    %   However, by the proof of Lemma 1.7.5 in Zeman's book we have
+    %   that
+    %   \[
+    %     \bar{A} := \{ \xi < \omega\rho^{n+1}_{M} \mid M \models \phi[\xi, p] \}
+    %     \in M.
+    %   \]
+    %   By $\Sigma^{(n+1)}_{1}$-elementarity we have that
+    %   \[
+    %     N \models \forall \xi^{n+1} \phi[\xi^{n+1}, \pi(p)] \iff
+    %     \xi^{n+1} \in \pi(\bar{A}),
+    %   \]
+    %   i.e.
+    %   \[
+    %     \{ \xi < \omega\rho^{n+1}_{N} \mid N \models \phi[\xi, \pi(p)]
+    %     \} = \pi(\bar{A}) \in N.
+    %   \]
+    %   Contradiction!      
+    % \end{proof}
     
 \end{document}
 
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
