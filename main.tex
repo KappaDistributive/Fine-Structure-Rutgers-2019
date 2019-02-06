@@ -996,8 +996,7 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
     \section*{Bonus Exercises}
 
     \begin{exercise}
-      Let $\pi \colon M \to N$ be $\Sigma^{*}$-elementary such that
-      $P^{*}_{N} \cap \ran(\pi) \neq \emptyset$. Then, for all $n < \omega$, either
+      Let $\pi \colon M \to N$ be $\Sigma^{(n)}_{1}$-elementary. Then either
       \begin{enumerate}
       \item $\omega\rho^{n}_{M} = o(M)$ and $\omega\rho^{n}_{N} = o(N)$ or
       \item $\omega\rho^{n}_{M} < o(M)$ and
@@ -1005,15 +1004,30 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
       \end{enumerate}
       
     \end{exercise}
+
+    \begin{corollary}
+      Let $\pi \colon M \to N$ be $\Sigma^{(n)}_{1}$-elementary. Then for all $l \le n$ either
+      \begin{enumerate}
+      \item $\omega\rho^{l}_{M} = o(M)$ and
+        $\omega\rho^{l}_{N} = o(N)$ or
+      \item $\omega\rho^{l}_{M} < o(M)$ and
+        $\pi(\omega\rho^{l}_{M}) = \omega\rho^{l}_{N}$.
+      \end{enumerate}
+      \end{corollary}
+
+      \begin{proof}[Proof of Corollary]
+        If $\pi \colon M \to N$ is $\Sigma^{(n)}_{1}$-elementary, then
+        $\pi$ is also $\Sigma^{(l)}_{1}$-elementary for all $l \le n$.
+      \end{proof}
     
-    % \begin{proof}
+    % \begin{proof}[Proof of Exercise]
     %   Let us adapt the convention, for this proof only, that
     %   $\pi(o(M)) = o(N)$. \\
     %   We proceed by induction on $n < \omega$. For $n = 0$ we have
     %   $\omega\rho^{n}_{M} = o(M)$ and $\omega\rho^{n}_{N} = o(N)$. \\
-    %   Now assume that the claim holds for all $n$. \\
+    %   Now assume that the claim holds for $n$. \\
     %   First we show that
-    %   $\omega\rho^{n+1}_{N} \le \pi(\omega\rho^{+1n}_{M})$. If
+    %   $\omega\rho^{n+1}_{N} \le \pi(\omega\rho^{n+1}_{M})$. If
     %   $\omega\rho^{n}_{M} = \omega\rho^{n+1}_{M}$ then
     %   $\omega\rho^{n+1}_{N} \le \omega\rho^{n}_{N} =
     %   \pi(\omega\rho^{n}_{M}) = \pi(\omega\rho^{n+1}_{M})$. Thus we
@@ -1045,14 +1059,14 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
     %   $\omega\rho^{n}_{N}$ is an $N$-cardinal, in $H^{n}_{N}$. It
     %   follows that
     %   \[
-    %     N \models \exists x^{n} \forall \xi \in
-    %     \pi(\omega\rho^{n+1}_{M}) \xi \in x^{n} \iff \phi[\xi,
+    %     N \models \exists x^{n} \forall \xi^{n} \in
+    %     \pi(\omega\rho^{n+1}_{M})^{n} \colon \xi^{n} \in x^{n} \iff \phi[\xi^{n},
     %     \pi(p)].
     %   \]
     %   This is a $\Sigma^{(n)}_{1}$-statement and hence preserved downwards, i.e.
     %   \[
-    %     M \models \exists x^{n} \forall \xi \in
-    %     \omega\rho^{n+1}_{M} \xi \in x^{n} \iff \phi[\xi,
+    %     M \models \exists x^{n} \forall \xi^{n} \in
+    %     \omega\rho^{n+1}_{M}^{n} \xi^{n} \in x^{n} \iff \phi[\xi^{n},
     %     \pi].
     %   \]
     %   But this witnesses that
@@ -1063,33 +1077,16 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
     %   Contradiction! Hence we do have that
     %   $\omega\rho^{n+1}_{N} \le \pi(\omega\rho^{n+1}_{M})$. \\
 
-    %   Conversely let $p \in M$ be such that $\pi(p) \in P^{*}_{N}$ and
-    %   let $\phi$ be a $\Sigma^{(n)}_{1}$-formula such that
+    %   Conversely, suppose that $\pi(\omega\rho^{n+1}_{M}) < \omega\rho^{n+1}_{N}$. Then
     %   \[
-    %     \{ \xi < \omega\rho^{n+1}_{N} \mid N \models \phi[\xi, \pi(p)] \} \not \in N
+    %     N \models \exists x^{n+1} \colon x^{n+1} = \pi(\omega\rho^{n+1}_{M}).
     %   \]
-    %   Suppose that $\pi(\omega\rho^{n+1}_{M}) < \omega\rho^{n+1}_{N}$. Then
+    %   By $\Sigma^{(n+1)}_{1}$-elementarity, we obtain
     %   \[
-    %     \{ \xi < \pi(\omega\rho^{n+1}_{M})\mid N \models \phi[\xi,
-    %     \pi(p)] \} \in N
+    %     N \models \exists x^{n+1} \colon x^{n+1} = \omega\rho^{n+1}_{M},
     %   \]
-    %   However, by the proof of Lemma 1.7.5 in Zeman's book we have
-    %   that
-    %   \[
-    %     \bar{A} := \{ \xi < \omega\rho^{n+1}_{M} \mid M \models \phi[\xi, p] \}
-    %     \in M.
-    %   \]
-    %   By $\Sigma^{(n+1)}_{1}$-elementarity we have that
-    %   \[
-    %     N \models \forall \xi^{n+1} \phi[\xi^{n+1}, \pi(p)] \iff
-    %     \xi^{n+1} \in \pi(\bar{A}),
-    %   \]
-    %   i.e.
-    %   \[
-    %     \{ \xi < \omega\rho^{n+1}_{N} \mid N \models \phi[\xi, \pi(p)]
-    %     \} = \pi(\bar{A}) \in N.
-    %   \]
-    %   Contradiction!      
+    %   i.e. $\omega\rho^{n+1}_{M} \in H^{n+1}_{M} \cap \ord$. But
+    %   $H^{n+1}_{M} \cap \ord = \omega\rho^{n+1}_{M}$. Contradiction!
     % \end{proof}
     
 \end{document}
