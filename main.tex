@@ -427,6 +427,92 @@ $r(n) \in R_{M^{n, r \restriction n}}$.
   good $\Sigma^{(n)}_1(M)$-functions. Consult Zeman's book.
 \end{remark}
 
+% \begin{definition}
+%   Let $f$ be a $\Sigma^{(n)}_{1}(M)$-function. $\phi$ is a
+%   \emph{functionally absolute $\Sigma^{(n)}_{1}$ definition for $f$}
+%   iff
+%   \begin{enumerate}
+%   \item $\phi$ defines $f$ over $M$, i.e.
+%     \[
+%       y = f(x_{0}, \ldots, x_{l}) \iff M \models \phi(y, x_{0}, \ldots, x_{l}).
+%     \]
+%   \item $\phi$ is $\Sigma^{(n)}_{1}$,
+%   \item for every acceptable $\mathcal{J}$-structure $N$, $\phi$
+%     defines a function over $N$.
+%   \end{enumerate}
+% \end{definition}
+
+% \begin{definition}
+%   Let $f(v_{0}^{i_{0}}, \ldots, v_{l}^{i_{l}})$ be a
+%   $\Sigma^{(n)}_{1}(M)$ function in the parameter $p$. $f$ has a
+%   \emph{functionally absolute $\Sigma^{(n)}_{1}$-definition in $p$}
+%   iff tehre is a function $F(v_{0}^{i_{0}}, \ldots, v_{l}^{i_{l}}, w)$
+%   with a functionally absolute $\Sigma^{(n)}_{1}$-definition such that
+%   \[
+%     f(x_{0}, \ldots, x_{l}) \sim F(x_{0}, \ldots, x_{l}, p).
+%   \]
+%   for all $x_{0}, \ldots, x_{l}$.
+% \end{definition}
+
+% \begin{lemma}
+%   Every good $\Sigma^{(n)}_{1}(M)$ function has a functionally
+%   absolute $\Sigma^{(n)}_{1}$-definition.
+% \end{lemma}
+
+% \begin{proof}
+%   By an induction on the complexity of good $\Sigma^{(n)}_{1}$-functions, it suffices to prove
+%   \begin{claim}
+%     Every $\Sigma^{(n)}_{1}(M)$ function to $H^{n}_{M}$ whose
+%     variables are of type $\le n$ has a functionally absolute
+%     definition.
+%   \end{claim}
+
+%   \begin{proofblack}
+%     If $n=0$, then $f(\vec{x}) \sim h_{M}(i,x)$ for some $i < \omega$. \\
+%     For $n > 0$ let $f$ be defined by $\phi$. Let
+%     \[
+%       f_{\vec{x}^{0}, \ldots, \vec{x}^{n-1}} \colon H^{n}_{M} \to
+%       H^{n}_{M}, \vec{x}^{n} \mapsto f(\vec{x}^{0}, \ldots,
+%       \vec{x}^{n-1}, \vec{x}^{n}).
+%     \]
+
+
+%     Recall that $f_{\vec{x}^{0}, \ldots, \vec{x}^{n-1}}$ is uniformly
+%     $\Sigma_{1}(M^{n, \vec{x}^{0}, \ldots, \vec{x}^{n-1}})$. Hence
+%     there is some $i < \omega$ such that
+%     \[
+%       f_{\vec{x}^{0}, \ldots, \vec{x}^{n-1}}(\vec{x}^{n}) =
+%       h^{n,\vec{x}^{0}, \ldots, \vec{x}^{n-1}}(i, \vec{x}^{n}).
+%     \]
+%     Since $h^{n, \vec{x}^{0}, \ldots, \vec{x}^{n-1}}$ has a uniform,
+%     functionally absolute $\Sigma_{1}$ defintion over
+%     $M^{n,\vec{x}^{0}, \ldots, \vec{x}^{n-1}}$, the right hand side
+%     gives our functionally absolute $\Sigma^{(n)}_{1}$ defintion of
+%     $f$.
+%   \end{proofblack}
+% \end{proof}
+
+% \begin{corollary}
+%   Let $\pi \colon M \to N$ be $\Sigma^{(n)}_{1}$-elementary. Let
+%   $\bar{R}(\vec{v}^{0}, \ldots, \vec{v}^{n})$ be a
+%   $\Sigma^{(n)}_{1}(M)$-relation and
+%   $R(\vec{v}^{0}, \ldots, \vec{v}^{n})$ be a
+%   $\Sigma^{(n)}_{1}(N)$-relation by the same definition. \\
+%   Let $\vec{\bar{F}}^{0}, \ldots, \vec{\bar{F}}^{n}$ be good
+%   $\Sigma^{(n)}_{1}(M)$-functions and let
+%   $\vec{F}^{0}, \ldots, \vec{F}^{n}$ be good $\Sigma^{(n)}_{1}(N)$
+%   functions by the same functionally absolute definition. Then, for
+%   all $\vec{x}_{0} \in H^{0}_{M}, \ldots, \vec{x}_{n} \in H^{n}_{M}$
+%   \[
+%     \bar{R}(\vec{\bar{F}}(\vec{a}), \ldots, \vec{\bar{F}}(\vec{a}))
+%     \iff R(\vec{F}(\pi(\vec{a})), \ldots, \vec{F}(\pi(\vec{a}))).
+%   \]
+% \end{corollary}
+
+% \begin{proof}
+%   Zeman, Lemma 1.8.11.
+% \end{proof}
+
 \begin{lemma} \label{lemma:definability in very good parameters}
   Let $r \in R^{n}_{M}$. Then
   $\boldsymbol{\Sigma}_{l}(M) \subseteq \Sigma^{(n)}_{l}(M)$ for every
@@ -945,7 +1031,8 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
       \begin{exercise}
         $\omega\rho^{i}_{\bar{M}} = \omega\rho^{i}$ for all $i \le n$.
       \end{exercise}
-      \todo[inline]{provide proof}
+      
+      % \todo[inline]{provide proof}
       % \begin{proof}
       %   We proceed by induction on
       %   $i$. For $i = 0$ there's nothing to do. So let $i > 0$ and
@@ -956,16 +1043,81 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
     \begin{lemma}
       Let
       \[
-	\sigma \colon \bar{M} \to_{\Sigma^{(n)}_{1}} M
+	\sigma \colon M \to_{\Sigma^{(n)}_{1}} N
       \]
-      be such that $\sigma \restriction \omega\rho^{n+1}_{M} = id$ and
-      $\ran(\sigma) \cap P^{*}_{M} \neq \emptyset$. Then $\sigma$ is
+      be such that $\sigma \restriction \omega\rho^{n+1}_{N} = id$ and
+      $\ran(\sigma) \cap P^{*}_{N} \neq \emptyset$. Then $\sigma$ is
       $\Sigma^{*} (= \bigcup_{k <
         \omega}\Sigma^{(k)}_{1})$-elementary.
     \end{lemma}
 
     \begin{proof}
       \todo[inline]{provide proof}
+      By induction on $m > n$ we prove that
+      \begin{enumerate}
+      \item $\omega\rho^{m}_{M} = \omega\rho^{m}_{N}$ and
+      \item $\sigma \colon M \to _{\Sigma^{(m)}_{1}} N$.
+      \end{enumerate}
+      For this it suffices to prove the following two claims.
+      \begin{claim}
+        Suppose $\sigma \colon M \to_{\Sigma^{(m)}_{1}} N$, $m \ge
+        n$. Then $\omega\rho^{m+1}_{M} = \omega\rho^{m+1}_{N}$.
+      \end{claim}
+
+      \begin{proofblack}
+        Let $\bar{p} \in P^{*}_{M}$ be such that
+        $\sigma(\bar{p}) \in P^{*}_{N}$. Let $A$ be
+        $\Sigma^{(m)}_{1}(N)$ in $\sigma(\bar{p})$ such that
+        $A \cap \omega\rho^{m+1}_{N} \not \in N$. Let $\bar{A}$ be
+        $\Sigma^{(m)}_{1}(M)$ in $\bar{p}$ by the same
+        definition. We have $\bar{A} \cap \omega\rho^{m+1}_{N} \not \in M$ as otherwise
+        \[
+          \sigma(\bar{A} \cap \omega\rho^{m+1}_{N}) \cap
+          \omega\rho^{m+1}_{N} = A \cap \omega\rho^{m+1}_{N} \in N.
+        \]
+        Hence $\omega\rho^{n+1}_{M} \le \omega\rho^{n+1}_{N}$. \\
+        Conversely let $\bar{A}$ be $\Sigma^{(m)}_{1}(M)$ in parameter
+        $\bar{p}$ and let $\alpha < \omega\rho^{m+1}_{N}$. Let $A$ be
+        $\Sigma^{(m)}_{1}(N)$ in parameter $\sigma(\bar{p})$ via the
+        same definition. Then
+        \[
+          \bar{A} \cap \alpha = A \cap \alpha \in \mathcal{J}^{N}_{\omega\rho^{m+1}_{N}}.
+        \]
+        Since $\sigma \restriction \omega\rho^{m+1}_{N} = \id$, we
+        have
+        $\mathcal{J}^{M}_{\omega\rho^{m+1}_{M}} =
+        \mathcal{J}^{N}_{\omega\rho^{m+1}_{N}}$, so that
+        $\bar{A} \cap \alpha \in M$ and hence
+        $\omega\rho^{m+1}_{N} \le \omega\rho^{m+1}_{M}$.
+      \end{proofblack}
+
+      \begin{claim}
+        Suppose $\omega\rho^{m}_{M} = \omega\rho^{m}_{N}$ and $\sigma \colon M \to_{\Sigma^{(m-1)}_{1}} N$, $m > n$. Then
+        \[
+          \sigma \colon M \to_{\Sigma^{(m)}_{1}} N.
+        \]
+      \end{claim}
+
+      \begin{proofblack}
+        By induction on the complexity of
+        $\Sigma^{(m)}_{1}$-formulae. The only nontrivial step is the
+        introduction of an existential quantifier of type $m$. So,
+        suppose $\vec{x} \in M$, $\phi$ is preserved by $\sigma$ and
+        \[
+          N \models \exists x^{m} \phi[x^{m}, \sigma(\vec{x})].
+        \]
+        Pick some such $x \in H^{m}_{N}$. Since
+        $\sigma \restriction H^{m}_{N} = \id$, we have
+        $\sigma(x) = x$ and
+        \[
+          M \models \phi[x, \vec{x}].
+        \]
+        Since $\omega\rho^{m}_{M} = \omega\rho^{m}_{N}$, it follows
+        that
+        \[
+          M \models \exists x^{m} \phi[x^{m}, \vec{x}].
+        \]
+      \end{proofblack}
     \end{proof}
 
     \section{Witnesses and Solidity}
@@ -1153,7 +1305,9 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
         \]
       \end{lemma}
 
-      \todo[inline]{provide proof}
+      \begin{proof}
+        Zeman, Lemma 1.12.3.
+      \end{proof}
 
       \begin{corollary}
         Let $M$ be acceptable, $p \in P^{n}_{M}$ and suppose that
