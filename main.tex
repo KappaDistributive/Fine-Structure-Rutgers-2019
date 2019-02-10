@@ -12,7 +12,6 @@
 \usepackage{amsthm}
 %\usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
 
-
 % Theorem Environments
 \theoremstyle{nicestyle}
 \newtheorem{theorem}{Theorem}[subsection]
@@ -122,7 +121,7 @@ $\mathcal{J}$-structures, $k,l,m,n < \omega$.
 \begin{hint}
   Suppose that $M$ is an acceptable $\mathcal{J}$-structure
   s.t. $\omega \rho^2_M < \omega \rho^1_M$ and such that there is some
-  $\Sigma^{(0)}_0$-formula $\phi$ and some $p in M$ with
+  $\Sigma^{(0)}_0$-formula $\phi$ and some $p \in M$ with
   \[
     A := \{ \xi < \omega \rho^2_M \mid M \models \exists x^1 \phi [
     \xi, x^{(1)}, p ] \} \not \in M.
@@ -136,9 +135,11 @@ $\mathcal{J}$-structures, $k,l,m,n < \omega$.
  Consider $\phi(x^{(0)}, f(y^{(0)}), p)$.
 \end{hint}
 
-Our goal is to identify a sufficiently large collection of
-$\Sigma^{(n)}_1$-functions that can be substitued into
-$\Sigma^{(n)}_1$-relations without increasing their complexity.
+Our goal is to identify a sufficiently large collection of good
+$\Sigma^{(n)}_1$-functions that can be substituted into
+$\Sigma^{(n)}_1$-relations without increasing their complexity. The
+key step to the definition of good $\Sigma^{(n)}_{1}$-functions is the
+following
 
 \begin{lemma}
   Let $n < \omega$ and $R(\vec{x}^{0}, \ldots, \vec{x}^n)$ be a
@@ -167,15 +168,17 @@ $\Sigma^{(n)}_1$-relations without increasing their complexity.
   \item $B$ being a block of bounded quantifiers and
   \item $R^{*}$ being a Boolean combinatin of $\Sigma^{(n)}_1(M)$-relations.
   \end{enumerate}
-  By our induction hypothesis and the fact that every $\Sigma^{(n)}_1(M)$-relation is the specialization of a $\Sigma^{(n)}_1(M)$ with arguments of type $\le n$, we obtain that
+  By our induction hypothesis and the fact that every
+  $\Sigma^{(n)}_1(M)$-relation is the specialization of a
+  $\Sigma^{(n)}_1(M)$ with arguments of type $\le n$, we obtain that
   \[
     R(F^{0}(\vec{y}), \ldots, F^{n}(\vec{y}), \vec{x}^{n+1})
   \]
   is $\Sigma^{(n+1)}_1(M)$. But now
   \[
     R(F^{0}(\vec{y}), \ldots, F^{n+1}(\vec{y})) \equiv \exists
-    \vec{x}^{n+1} \colon F^{n+1}(\vec{y}) \wedge R(F^{0}(\vec{y}),
-    \ldots, F^{n}(\vec{y}), \vec{x}^{n+1})
+    \vec{x}^{n+1} \colon x^{n+1} = F^{n+1}(\vec{y}) \wedge
+    R(F^{0}(\vec{y}), \ldots, F^{n}(\vec{y}), \vec{x}^{n+1})
   \]
   is $\Sigma^{(n+1)}_1(M)$. \\
   Note that this transformation only depends on the formulae defining
@@ -183,8 +186,8 @@ $\Sigma^{(n)}_1$-relations without increasing their complexity.
   claimed.
 \end{proof}
 
-\begin{corollary} \label{cor:closure under functions}
-  Let $n < \omega$, $1 \le l < \omega$ and
+\begin{corollary} \label{cor:closure under functions} Let
+  $n < \omega$, $1 \le l < \omega$ and
   $R(\vec{x}^{0}, \ldots, \vec{x}^n)$ be a
   $\Sigma^{(n)}_l(M)$-relation. Let $F^0, \ldots, F^{n}$ be such that
   for all $i \le n$ $F^i(\vec{x}^{0}, \ldots, \vec{x}^{(n)})$ is a
@@ -294,7 +297,7 @@ $\Sigma^{*}$ fine structure:
   \]
   such that for all $r \in R^{n+1}_{M}$
   \[
-    F_{r} \colon H^{n+1}_{M} \to M, x^{n+1} \mapsto F(x^{n+1}, p)
+    F_{r} \colon H^{n+1}_{M} \to M, x^{n+1} \mapsto F(x^{n+1}, r)
   \]
   is surjective.
 \end{lemma}
@@ -350,10 +353,9 @@ $r(n) \in R_{M^{n, r \restriction n}}$.
     \end{enumerate}
 \end{definition}
 \begin{remark}
-  $h^{n+1}_{M}$ is a uniformly $\Sigma^{(n)}_{1}(M)$-function and if
-  $r \in R^{n+1}_{M}$, then every $x \in M$ is of the form
+  If $r \in R^{n+1}_{M}$, then every $x \in M$ is of the form
   $\tilde{h}^{n+1}(z, r)$ for some $z \in H^{n+1}_{M}$. In fact, we
-  can choose $z \in \omega \rho^{n+1}_{M}$.
+  can choose $z \in [\omega \rho^{n+1}_{M}]^{<\omega}$.
 \end{remark}
 
 \begin{corollary} \label{cor:definability via very good parameters}
@@ -370,18 +372,19 @@ $r(n) \in R_{M^{n, r \restriction n}}$.
     A = \{ x \in H^{n}_{M} \mid M \models \phi[x, q] \}
   \]
   for some $\Sigma^{(n)}_{1}$-formula $\phi$ and some $q \in M$. Fix
-  $\xi < \omega \rho^{n}_{M}$ such that
-  $q = \tilde{h}^{n}_{M}(\xi, r)$. Then
+  $\vec{\xi} \in [\omega \rho^{n}_{M}]^{< \omega}$ such that
+  $q = \tilde{h}^{n}_{M}(\vec{\xi}, r)$. Then
   \[
-    A(x^{n}) \iff M \models \phi[x^{n}, \tilde{h}^{n}_{M}(\xi^{n}, r^{0})].
+    A(x^{n}) \iff M \models \phi[x^{n},
+    \tilde{h}^{n}_{M}(\vec{\xi}^{n}, r^{0})].
   \]
   Since $\tilde{h}^{n}(y^{n}, z^{0})$ is a good
   $\Sigma^{(n-1)}_{1}(M)$-function (and thus a good
   $\Sigma^{(n)}_{1}(M)$-function), this witnesses that $A$ is
-  $\Sigma^{(n)}_{1}(M)$ in parameters $\xi, r$ and hence
+  $\Sigma^{(n)}_{1}(M)$ in parameters $\vec{\xi}, r$ and hence
   $\boldsymbol{\Sigma}_{1}(M^{n,r})$ (by the characterization of
   $\Sigma^{(n)}_{l}(M)$ subsets of $H^{n}_{M}$ as
-  $\Sigma_{l}(M^{n,r})$ relations in $\Sigma^{n-1}_{1}(M)$
+  $\Sigma_{l}(M^{n,r})$ relations in $\Sigma^{(n-1)}_{1}(M)$
   predicates).
 \end{proof}
 
@@ -426,30 +429,31 @@ $r(n) \in R_{M^{n, r \restriction n}}$.
   good $\Sigma^{(n)}_1(M)$-functions. Consult Zeman's book.
 \end{remark}
 
-\begin{lemma} \label{lemma:definability in very good parameters}
-  Let $r \in R^{n}_{M}$. Then
+\begin{lemma} \label{lemma:definability in very good parameters} If
+  $R^{n}_{M} \neq \emptyset$, then
   $\boldsymbol{\Sigma}_{l}(M) \subseteq \Sigma^{(n)}_{l}(M)$ for every
   $l \ge 1$.
 \end{lemma}
 
 \begin{proof}
   We will prove the result for $l = 1$. The general case follows by a
-  straightforward induction. Let $\phi$ be a $\Sigma_{0}$ formula, $q \in M$ and
+  straightforward induction. Let $r \in R^{n}_{M}, \phi$ be a
+  $\Sigma_{0}$ formula, $q \in M$ and
   \[
     A = \{ a \in M \mid M \models \exists x \phi[x,a,q] \}.
   \]
-  Fix $\xi \in \omega \rho^{n}_{M}$ such that
-  $q = \tilde{h}^{n}(\xi, r)$. Then
+  Fix $\vec{\xi} \in [\omega \rho^{n}_{M}]^{<\omega}$ such that
+  $q = \tilde{h}^{n}(\vec{\xi}, r)$. Then
   \[
     A = \{ a \in M \mid M \models \exists x^{(n)} \phi [
-    \tilde{h}^{n}(x^{n}, r^{0}), a^{0}, \tilde{h}^{n}(\xi^{n}, r^{0})]
-    \}
+    \tilde{h}^{n}(x^{n}, r^{0}), a^{0}, \tilde{h}^{n}(\vec{\xi}^{n},
+    r^{0})] \}
   \]
   is $\Sigma^{(n)}_{1}(M)$.
 \end{proof}
 
 \begin{corollary}
-  Let $r \in R^{n}_{M}$. Then
+  If $R^{n}_{M} \neq \emptyset$, then
   $\boldsymbol{\Sigma}_{< \omega}(M) = \boldsymbol{\Sigma}^{(n)}_{<
     \omega}(M)$.
 \end{corollary}
@@ -478,7 +482,7 @@ $r(n) \in R_{M^{n, r \restriction n}}$.
   \[
     N \overset{\pi}{\cong} X \prec_{1} M
   \]
-  Be the Mostowski collapse. Since being an acceptable
+  be the Mostowski collapse. Since being an acceptable
   $\mathcal{J}$-structure is a $Q$-property, we have that $N$ is an
   acceptable $\mathcal{J}$-structure and clearly
   $\pi^{-1} \restriction o(M) = \id$. Since there is, for acceptable
@@ -586,7 +590,7 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
     \begin{enumerate}
     \item If $a \in [o(M)]^{< \omega}$ we set
       \begin{enumerate}
-      \item $a^{n} := a \cap [ \omega\rho^{n+1}_{M}, \omega\rho^{n}_{M}]$ and
+      \item $a^{n} := a \cap [ \omega\rho^{n+1}_{M}, \omega\rho^{n}_{M})$ and
       \item $a \restriction n = a \setminus \omega\rho^{n}_{M}$.
       \end{enumerate}
     \end{enumerate}
@@ -620,7 +624,7 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
   \end{proof}
 
   \begin{corollary} \label{corollary: lengthening standard parameters}
-    Let $r \in R^{n}_{M}$. Then $r$ can be lengthended to some
+    Let $r \in R^{n}_{M}$. Then $r$ can be lengthened to some
     $p \in P^{n+1}_{M}$. If, in addtion, $r \in [o(M)]^{< \omega}$,
     then $r$ can be lengthened to some
     $p \in P^{n+1}_{M} \cap [o(M)]^{<\omega}$.
@@ -892,7 +896,7 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
       is the $<^{*}$-least good $n$th parameter and thus $p = q$. By
       $q \in R^{n}_{J_{\bar{\alpha}}} =
       R^{n}_{J_{\alpha}}$. Contradiction!
-  \end{proof}
+    \end{proof}
 \end{document}
 %%% Local Variables:
 %%% mode: latex
