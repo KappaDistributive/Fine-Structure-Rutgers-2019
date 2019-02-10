@@ -10,7 +10,8 @@
 \usepackage{hyperref}
 %\usepackage[capitalize,nameinlink]{cleveref}
 \usepackage{amsthm}
-%\usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
+% \usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
+% \usepackage[printsolution=true]{exercises}
 
 % Theorem Environments
 \theoremstyle{nicestyle}
@@ -105,7 +106,7 @@ $\mathcal{J}$-structures, $k,l,m,n < \omega$.
 \setcounter{subsection}{7}
 \subsection{Substitution and Good Functions}
 
-\todo[inline]{First Draft}
+\todo[inline]{Talk 1, first draft}
 
 \begin{problem}
   $\Sigma^{(n)}_1(M)$-relations are not necessarily closed under
@@ -429,8 +430,94 @@ $r(n) \in R_{M^{n, r \restriction n}}$.
   good $\Sigma^{(n)}_1(M)$-functions. Consult Zeman's book.
 \end{remark}
 
-\begin{lemma} \label{lemma:definability in very good parameters} If
-  $R^{n}_{M} \neq \emptyset$, then
+% \begin{definition}
+%   Let $f$ be a $\Sigma^{(n)}_{1}(M)$-function. $\phi$ is a
+%   \emph{functionally absolute $\Sigma^{(n)}_{1}$ definition for $f$}
+%   iff
+%   \begin{enumerate}
+%   \item $\phi$ defines $f$ over $M$, i.e.
+%     \[
+%       y = f(x_{0}, \ldots, x_{l}) \iff M \models \phi(y, x_{0}, \ldots, x_{l}).
+%     \]
+%   \item $\phi$ is $\Sigma^{(n)}_{1}$,
+%   \item for every acceptable $\mathcal{J}$-structure $N$, $\phi$
+%     defines a function over $N$.
+%   \end{enumerate}
+% \end{definition}
+
+% \begin{definition}
+%   Let $f(v_{0}^{i_{0}}, \ldots, v_{l}^{i_{l}})$ be a
+%   $\Sigma^{(n)}_{1}(M)$ function in the parameter $p$. $f$ has a
+%   \emph{functionally absolute $\Sigma^{(n)}_{1}$-definition in $p$}
+%   iff tehre is a function $F(v_{0}^{i_{0}}, \ldots, v_{l}^{i_{l}}, w)$
+%   with a functionally absolute $\Sigma^{(n)}_{1}$-definition such that
+%   \[
+%     f(x_{0}, \ldots, x_{l}) \sim F(x_{0}, \ldots, x_{l}, p).
+%   \]
+%   for all $x_{0}, \ldots, x_{l}$.
+% \end{definition}
+
+% \begin{lemma}
+%   Every good $\Sigma^{(n)}_{1}(M)$ function has a functionally
+%   absolute $\Sigma^{(n)}_{1}$-definition.
+% \end{lemma}
+
+% \begin{proof}
+%   By an induction on the complexity of good $\Sigma^{(n)}_{1}$-functions, it suffices to prove
+%   \begin{claim}
+%     Every $\Sigma^{(n)}_{1}(M)$ function to $H^{n}_{M}$ whose
+%     variables are of type $\le n$ has a functionally absolute
+%     definition.
+%   \end{claim}
+
+%   \begin{proofblack}
+%     If $n=0$, then $f(\vec{x}) \sim h_{M}(i,x)$ for some $i < \omega$. \\
+%     For $n > 0$ let $f$ be defined by $\phi$. Let
+%     \[
+%       f_{\vec{x}^{0}, \ldots, \vec{x}^{n-1}} \colon H^{n}_{M} \to
+%       H^{n}_{M}, \vec{x}^{n} \mapsto f(\vec{x}^{0}, \ldots,
+%       \vec{x}^{n-1}, \vec{x}^{n}).
+%     \]
+
+
+%     Recall that $f_{\vec{x}^{0}, \ldots, \vec{x}^{n-1}}$ is uniformly
+%     $\Sigma_{1}(M^{n, \vec{x}^{0}, \ldots, \vec{x}^{n-1}})$. Hence
+%     there is some $i < \omega$ such that
+%     \[
+%       f_{\vec{x}^{0}, \ldots, \vec{x}^{n-1}}(\vec{x}^{n}) =
+%       h^{n,\vec{x}^{0}, \ldots, \vec{x}^{n-1}}(i, \vec{x}^{n}).
+%     \]
+%     Since $h^{n, \vec{x}^{0}, \ldots, \vec{x}^{n-1}}$ has a uniform,
+%     functionally absolute $\Sigma_{1}$ defintion over
+%     $M^{n,\vec{x}^{0}, \ldots, \vec{x}^{n-1}}$, the right hand side
+%     gives our functionally absolute $\Sigma^{(n)}_{1}$ defintion of
+%     $f$.
+%   \end{proofblack}
+% \end{proof}
+
+% \begin{corollary}
+%   Let $\pi \colon M \to N$ be $\Sigma^{(n)}_{1}$-elementary. Let
+%   $\bar{R}(\vec{v}^{0}, \ldots, \vec{v}^{n})$ be a
+%   $\Sigma^{(n)}_{1}(M)$-relation and
+%   $R(\vec{v}^{0}, \ldots, \vec{v}^{n})$ be a
+%   $\Sigma^{(n)}_{1}(N)$-relation by the same definition. \\
+%   Let $\vec{\bar{F}}^{0}, \ldots, \vec{\bar{F}}^{n}$ be good
+%   $\Sigma^{(n)}_{1}(M)$-functions and let
+%   $\vec{F}^{0}, \ldots, \vec{F}^{n}$ be good $\Sigma^{(n)}_{1}(N)$
+%   functions by the same functionally absolute definition. Then, for
+%   all $\vec{x}_{0} \in H^{0}_{M}, \ldots, \vec{x}_{n} \in H^{n}_{M}$
+%   \[
+%     \bar{R}(\vec{\bar{F}}(\vec{a}), \ldots, \vec{\bar{F}}(\vec{a}))
+%     \iff R(\vec{F}(\pi(\vec{a})), \ldots, \vec{F}(\pi(\vec{a}))).
+%   \]
+% \end{corollary}
+
+% \begin{proof}
+%   Zeman, Lemma 1.8.11.
+% \end{proof}
+
+\begin{lemma} \label{lemma:definability in very good parameters}
+  Let $r \in R^{n}_{M}$. Then
   $\boldsymbol{\Sigma}_{l}(M) \subseteq \Sigma^{(n)}_{l}(M)$ for every
   $l \ge 1$.
 \end{lemma}
@@ -471,7 +558,7 @@ $r(n) \in R_{M^{n, r \restriction n}}$.
 
 \subsection{Standard Parameters}
 
-\todo[inline]{first draft}
+\todo[inline]{Talk 2, first draft}
 \begin{lemma}
   $h_{M}" [o(M)]^{< \omega} = M$.
 \end{lemma}
@@ -750,8 +837,6 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
 
   \subsection{Two Applications to $L$}
 
-  \todo[inline]{first draft}
-
   \begin{theorem} \label{theorem: L is sound}
     For every $\alpha \in \ord$ $J_{\alpha}$ is acceptable and sound.
   \end{theorem}
@@ -897,7 +982,495 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
       $q \in R^{n}_{J_{\bar{\alpha}}} =
       R^{n}_{J_{\alpha}}$. Contradiction!
     \end{proof}
+<<<<<<< HEAD
+=======
+
+
+    \section{More on Downward Extensions of Embeddings}
+    \todo[inline]{Talk 3, first draft}
+    
+    \begin{definition}
+      Let $M = (|M|; A_{1}, \ldots, A_{n})$ and $X \subseteq |M|$. Then
+      \[
+	M | X := (|M| \cap X; A_{1} \cap X, \ldots, A_{n} \cap X).
+      \]
+    \end{definition}
+
+    \begin{lemma}
+      Let $M = (J^{A}_{\alpha}; \in, A, B)$ be an acceptable structure
+      and let $X \subseteq M$ be closed under good
+      $\Sigma^{(n)}_{1}(M)$-functions with
+      $X \cap P^{n}_{M} \neq \emptyset$. Let $\bar{M}$ be the
+      transitive collapse of $X$ and let $\sigma$ be the inverse of
+      the collapsing map. Then
+      \[
+	\sigma \colon \bar{M} \to_{\Sigma^{(n)}_{1}} M.
+      \]
+    \end{lemma}
+
+    \begin{proof}
+      $\vec{x} \in X$ and let $\phi$ be a $\Sigma^{(n)}_{0}$-formula
+      such that
+      \[
+	M \models \exists y^{n} \phi[y^{n}, \vec{x}].
+      \]
+      By $\Sigma^{(n)}_{1}(M)$-uniformization, leveraging that $X$ is
+      closed under good $\Sigma^{(n)}_{1}(M)$-functions, we obtain
+      that
+      \[
+	M | X \models \exists y^{n} \phi[y^{n}, \vec{x}]
+      \]
+      and thus that $M | X \prec_{\Sigma^{(n)}_{1}} M$. Now, for
+      $i \le n$, define
+      \begin{enumerate}
+      \item $H^{i} := \sigma " H^{i}_{M}$ and
+      \item $\omega\rho^{i} := H^{i} \cap \ord$.
+      \end{enumerate}
+      We establish a pseudo-interpretation of
+      $\Sigma^{(n)}_{1}$-formulae over $\bar{M}$ by declaring that
+      variables of type $i$ ($i \le n$) range over $H^{i}$. For this
+      pseudo-interpretation we obtain
+      \[
+	\sigma \colon \bar{M} \to_{\Sigma^{(n)}_{1}} M
+      \]
+      as above. It now suffices to show
+      \begin{exercise}
+        $\omega\rho^{i}_{\bar{M}} = \omega\rho^{i}$ for all $i \le n$.
+      \end{exercise}
+      
+      % \todo[inline]{provide proof}
+      % \begin{proof}
+      %   We proceed by induction on
+      %   $i$. For $i = 0$ there's nothing to do. So let $i > 0$ and
+      %   suppose that the claim holds for all $k < i$.
+      % \end{proof}
+    \end{proof}
+
+    \begin{lemma}
+      Let
+      \[
+	\sigma \colon M \to_{\Sigma^{(n)}_{1}} N
+      \]
+      be such that $\sigma \restriction \omega\rho^{n+1}_{N} = id$ and
+      $\ran(\sigma) \cap P^{*}_{N} \neq \emptyset$. Then $\sigma$ is
+      $\Sigma^{*} (= \bigcup_{k <
+        \omega}\Sigma^{(k)}_{1})$-elementary.
+    \end{lemma}
+
+    \begin{proof}
+      By induction on $m > n$ we prove that
+      \begin{enumerate}
+      \item $\omega\rho^{m}_{M} = \omega\rho^{m}_{N}$ and
+      \item $\sigma \colon M \to _{\Sigma^{(m)}_{1}} N$.
+      \end{enumerate}
+      For this it suffices to prove the following two claims.
+      \begin{claim}
+        Suppose $\sigma \colon M \to_{\Sigma^{(m)}_{1}} N$, $m \ge
+        n$. Then $\omega\rho^{m+1}_{M} = \omega\rho^{m+1}_{N}$.
+      \end{claim}
+
+      \begin{proofblack}
+        Let $\bar{p} \in P^{*}_{M}$ be such that
+        $\sigma(\bar{p}) \in P^{*}_{N}$. Let $A$ be
+        $\Sigma^{(m)}_{1}(N)$ in $\sigma(\bar{p})$ such that
+        $A \cap \omega\rho^{m+1}_{N} \not \in N$. Let $\bar{A}$ be
+        $\Sigma^{(m)}_{1}(M)$ in $\bar{p}$ by the same
+        definition. We have $\bar{A} \cap \omega\rho^{m+1}_{N} \not \in M$ as otherwise
+        \[
+          \sigma(\bar{A} \cap \omega\rho^{m+1}_{N}) \cap
+          \omega\rho^{m+1}_{N} = A \cap \omega\rho^{m+1}_{N} \in N.
+        \]
+        Hence $\omega\rho^{n+1}_{M} \le \omega\rho^{n+1}_{N}$. \\
+        Conversely let $\bar{A}$ be $\Sigma^{(m)}_{1}(M)$ in parameter
+        $\bar{p}$ and let $\alpha < \omega\rho^{m+1}_{N}$. Let $A$ be
+        $\Sigma^{(m)}_{1}(N)$ in parameter $\sigma(\bar{p})$ via the
+        same definition. Then
+        \[
+          \bar{A} \cap \alpha = A \cap \alpha \in \mathcal{J}^{N}_{\omega\rho^{m+1}_{N}}.
+        \]
+        Since $\sigma \restriction \omega\rho^{m+1}_{N} = \id$, we
+        have
+        $\mathcal{J}^{M}_{\omega\rho^{m+1}_{M}} =
+        \mathcal{J}^{N}_{\omega\rho^{m+1}_{N}}$, so that
+        $\bar{A} \cap \alpha \in M$ and hence
+        $\omega\rho^{m+1}_{N} \le \omega\rho^{m+1}_{M}$.
+      \end{proofblack}
+
+      \begin{claim}
+        Suppose $\omega\rho^{m}_{M} = \omega\rho^{m}_{N}$ and $\sigma \colon M \to_{\Sigma^{(m-1)}_{1}} N$, $m > n$. Then
+        \[
+          \sigma \colon M \to_{\Sigma^{(m)}_{1}} N.
+        \]
+      \end{claim}
+
+      \begin{proofblack}
+        By induction on the complexity of
+        $\Sigma^{(m)}_{1}$-formulae. The only nontrivial step is the
+        introduction of an existential quantifier of type $m$. So,
+        suppose $\vec{x} \in M$, $\phi$ is preserved by $\sigma$ and
+        \[
+          N \models \exists x^{m} \phi[x^{m}, \sigma(\vec{x})].
+        \]
+        Pick some such $x \in H^{m}_{N}$. Since
+        $\sigma \restriction H^{m}_{N} = \id$, we have
+        $\sigma(x) = x$ and
+        \[
+          M \models \phi[x, \vec{x}].
+        \]
+        Since $\omega\rho^{m}_{M} = \omega\rho^{m}_{N}$, it follows
+        that
+        \[
+          M \models \exists x^{m} \phi[x^{m}, \vec{x}].
+        \]
+      \end{proofblack}
+    \end{proof}
+
+    \section{Witnesses and Solidity}
+
+    \begin{problem}
+      Let
+      \[
+	\sigma \colon \bar{M} \to_{\Sigma^{(n)}_{1}} M \footnote{In a typical application, $\sigma$ will be the
+        canonical embedding associated to a fine structural ultrapower
+        of $\bar{M}$.}
+      \]
+      
+      In general we might have that
+      \[
+	p_{M, n+1} <^{*} \sigma(p_{\bar{M}, n+1}),
+      \]
+      i.e. that standard parameters are moved incorrectly by fine
+      structural maps. In this section we introduce the concept of
+      solidity that, provided it holds for $\bar{M}$, implies that
+      standard parameters will be moved correctly.
+    \end{problem}
+
+    \begin{remark}
+      Fine structure theory and its later refinement
+      $\Sigma^{(*)}$-theory was developed by Ronald Jensen. The
+      concept of solidity, however, is due to Bill Mitchell and later,
+      independently, Sy Friedman.
+    \end{remark}
+
+    \begin{definition}
+      Let $p \in [o(M)]^{<\omega}$. $(Q,r)$ is a \emph{generalized
+        witness} for $\nu \in o(M)$ w.r.t. $M,p$ iff
+      \begin{enumerate}
+      \item $Q$ is acceptable and $\nu \subseteq Q$,
+      \item $r \in [o(Q)]^{<\omega}$ and
+      \item Let $n$ be such that
+        $\omega\rho^{n+1}_{M} \le \nu < \omega\rho^{n}_{M}$. Then for
+        every $\Sigma^{(n)}_{1}$-formula $\phi$ and
+        $\xi_{0}, \ldots, \xi_{l} < \nu$
+        \[
+          M \models \phi[p \setminus (\nu+1), \xi_{0}, \ldots,
+          \xi_{l}] \implies Q \models \phi[r, \xi_{0}, \ldots,
+          \xi_{l}].
+        \]
+      \end{enumerate}
+    \end{definition}
+
+    \begin{lemma}
+      There is a $\Sigma^{(n)}_{1}$-formula $\psi$ such that for every
+      $M,p,n,\nu$ as above $(Q,r)$ is a generalized witness for $\nu$
+      w.r.t. $M,p$ if for all $\xi_{0}, \ldots, \xi_{l} < \nu$
+      \[
+        M \models \psi[p \setminus (\nu+1), \xi_{0}, \ldots, \xi_{l}]
+        \implies Q \models \psi[r, \xi_{0}, \ldots, \xi_{l}].
+      \]
+      \end{lemma}
+
+      \begin{proof}
+        Let
+        \[
+          \psi(i, q, \langle l, \langle \xi_{0}, \ldots, \xi_{l}
+          \rangle \rangle) \equiv M^{n,q} \models \phi_{i}(q \cap \omega\rho^{n}_{M},
+          \xi_{0}, \ldots, \xi_{l}),
+        \]
+        where $(\phi_{i} \mid i < \omega)$ is the fixed recursive
+        enumeration of all $\Sigma_{1}$-formulae in the language of
+        acceptable $\mathcal{J}$-structures.
+      \end{proof}
+
+      \begin{exercise}
+        Verify that $\psi$ is as desired.
+      \end{exercise}
+
+      \begin{theorem}
+        Let $p \in P^{n}_{M}$ be such that for every $\nu \in p$ there
+        is a generalized witness $(Q,r)$ for $\nu$ w.r.t. $M,p$ such
+        that $Q \in M$. Then $p = p_{M,n}$.
+      \end{theorem}
+
+      \begin{proof}
+        Suppose not. Then $p_{M,n} <^{*} p$. Hence there is some
+        $\nu \in p \setminus p_{M,n}$ with
+        \[
+          q := p \setminus (\nu + 1) = p_{M,n} \setminus (\nu + 1).
+        \]
+        Fix $i < n$ such that
+        $\omega\rho^{i+1}_{M} \le \nu < \omega\rho^{i}_{M}$ and let
+        $A$ be a $\Sigma^{(i)}_{1}(M)$ set in $p_{M,n}$ such that
+        $A \cap \omega\rho^{i+1}_{M} \not \in M$. Now fix a
+        generalized witness $(Q,r)$ for $\nu$ w.r.t. $M,p$ such that
+        $Q \in M$. \\
+        Let $X$ be the closure of $\nu \cup q$ under good $\Sigma^{(i)}_{1}(M)$ functions and let
+        \[
+          \sigma \colon W \to X \prec_{\Sigma^{(i)}_{1}} M
+        \]
+        be the transitive collapse. Let $\bar{q} =
+        \sigma^{-1}(q)$. $W$ is the closure of $\nu \cup \bar{q}$
+        under good $\Sigma^{(i)}_{1}(W)$ functions, so that
+        \[
+          W = \bar{h}^{i+1}_{W}(\nu \cup \{\bar{q}\}).
+        \]
+
+        \begin{claim}
+          $p_{M,n} \in \ran(\sigma)$.
+        \end{claim}
+
+        \begin{proofblack}
+          \[
+            p_{M,n} = \underbrace{p_{M,n} \setminus (\nu+1)}_{= q} \cup (p_{m,n} \cap [0,\nu)).
+          \]
+          Since $q \in X$, $\nu \subseteq X$ and $X$ is closed under
+          pairing, we have $p_{M,n} \in X = \ran(\sigma)$.
+        \end{proofblack}
+        Now let $\bar{A}$ be the $\Sigma^{(i)}_{1}(W)$ set in
+        $\bar{p} = \sigma^{-1}(p_{M,n})$ by the same definition as
+        $A$. \\
+        Define
+        \[
+          \sigma^{*} \colon W \to Q, f_{W}(\xi_{0}, \ldots, \xi_{l}, q) \mapsto f_{Q}(\xi_{0}, \ldots, \xi_{l}, r),
+        \]
+        where $\xi_{0}, \ldots, \xi_{l} \in \nu$ and $f_{W},f_{Q}$ are
+        the corresponding interpretation of the same functionally
+        absolute definition of a good $\Sigma^{(i)}_{1}$-function $f$
+        in $W, Q$.
+
+        \begin{exercise}
+          $\sigma*$ is a well-defined $\Sigma^{(i)}_{0}$-elementary
+          embedding such that
+          \begin{enumerate}
+          \item $\sigma^{*} \restriction \nu = \id$ and
+          \item $\sigma^{*}(\bar{q}) = r$.
+          \end{enumerate}
+        \end{exercise}
+        Let $\omega\rho^{*} := \sup \sigma^{*}" \omega\rho^{i}_{W}$
+        and
+        $A^{*} := A^{i, r \restriction i}_{Q} \cap
+        \mathcal{J}^{Q}_{\rho^{*}}$. We have that $Q^{*} := (\mathcal{J}^{Q}_{\rho^{*}}, A^{*}) \in M$ and
+        \[
+          \sigma^{*} \restriction H^{i}_{W} \colon W^{i, \bar{q} \restriction i} \to_{\Sigma_{0}} Q^{*}
+        \]
+        cofinally. \\
+        Note that $\bar{A} \cap \omega\rho^{i}_{W}$ is
+        $\Sigma_{1}(W^{i, \bar{q} \restriction i})$ in the parameter
+        $\bar{p} \cap \omega\rho^{i}_{W}$. Let $\tilde{A}$ be
+        $\Sigma_{1}(Q^{*})$ in
+        $\sigma^{*}(\bar{p} \cap \omega\rho^{i}_{W})$ by the same
+        definition. Since $\bar{Q}^{*} \in M$, we have that
+        $\tilde{A} \in M$. On the other hand, since
+        $\sigma \restriction \nu = \sigma^{*} \restriction \nu = \id$,
+        we have that
+        \[
+          \tilde{A} \cap \omega\rho^{i+1}_{M} = \bar{A} \cap
+          \omega\rho^{i+1}_{M} = A \cap \omega\rho^{i+1}_{M} \not \in
+          M.
+        \]
+        Contradiction!
+      \end{proof}
+
+      As with good parameters, we can restrict ourselves to a natural,
+      representative subclass of solidity witnesses.
+
+      \begin{definition}
+        Let $M$ be acceptable, $p \in [o(M)]^{<\omega}$ and $\nu \in o(M)$. Let
+        \[
+          W^{\nu, p}_{M}
+        \]
+        be the transitive collapse of $M | X$, where $X$ is the
+        closure of $\nu \cup (p \setminus (\nu + 1))$ under good
+        $\Sigma^{(n)}_{1}(M)$-functions where $n \in \omega$ is such
+        that $\omega\rho^{n+1}_{M} \le \nu < \omega\rho^{n}_{M}$. \\
+        $W^{\nu,p}_{M}$ is \emph{the standard witness for $\nu$
+          w.r.t. $M,p$} and the corresponing inverse of the collapsing
+        map
+        \[
+          \sigma \colon W^{\nu,p}_{M} \to M
+        \]
+        is the \emph{canonical witness map of $W^{\nu,p}_{M}$}.
+      \end{definition}
+
+      \begin{lemma}
+        Let $p \in P^{n}_{M}$. Then for every $\nu \in p$
+        \[
+          W^{\nu,p}_{M} \in M \iff \text{ there is a generalized
+            witness } Q \in M \text{ for } \nu \text{ w.r.t. } M,p.
+        \]
+      \end{lemma}
+
+      \begin{proof}
+        Zeman, Lemma 1.12.3.
+      \end{proof}
+
+      \begin{corollary}
+        Let $M$ be acceptable, $p \in P^{n}_{M}$ and suppose that
+        every $\nu \in p$ has a generalized witness w.r.t. $M,p$ in
+        $M$. Then $p \restriction i = p_{M,i}$ for all $i \le n$.
+      \end{corollary}
+
+      \begin{definition}
+        An acceptable $\mathcal{J}$-structure $M$ is \emph{solid} iff
+        $W^{\nu, p_{M}}_{M} \in M$ for all $\nu \in p_{M}$. \\
+        $M$ is \emph{solid above $\alpha$} iff
+        $W^{\nu, p_{M}}_{M} \in M$ whenever
+        $\nu \in p_{M} \setminus \alpha$.
+      \end{definition}
+
+      \begin{exercise}
+        $J_{\alpha}$ is solid for all $\alpha$.
+      \end{exercise}
+
+      The main interest in solid $\mathcal{J}$-structures is captured
+      in the following
+
+      \begin{theorem}
+        Let $\sigma \colon M \to N$ be $\Sigma^{(n)}_{1}$-preserving,
+        $\bar{p} \in M$, $p = \sigma(\bar{p})$, $\bar{\nu} \in o(M)$,
+        $\nu = \sigma(\bar{\nu})$ with
+        $\omega\rho^{n+1}_{M} \le \bar{\nu}$ and
+        $\omega\rho^{n+1}_{N} \le \nu$. \\
+        Let $(\bar{Q}, \bar{r})$ be a generalized witness for
+        $\bar{\nu}$ w.r.t. $M, \bar{p}$ such that $\bar{Q} \in
+        M$. Then $(Q,r) := \sigma((\bar{Q}, \bar{r}))$ is a
+        generalized witness for $\nu$ w.r.t. $N,p$.
+      \end{theorem}
+
+      \begin{proof}
+        Fix $i < n$ such that
+        $\omega\rho^{i+1}_{M} \le \bar{\nu} < \omega\rho^{i+1}_{M}$
+        and $\omega\rho^{i+1}_{N} \le \nu <
+        \omega\rho^{i}_{N}$. \footnote{such an $i$ exists by
+          \autoref{exercise: projecta are moved correctly}.} Let
+        $\phi$ be a $\Sigma^{(i)}_{1}$-formula. Then
+        \[
+          M \models \forall \xi^{i}_{0}, \ldots, \xi^{i}_{l} <
+          \bar{\nu} \left( \phi(\xi^{i}_{0}, \ldots, \xi^{i}_{l},
+            \bar{p} \setminus (\bar{\nu} + 1)) \implies \bar{Q}
+            \models \phi(\xi^{i}_{0}, \ldots,
+            \xi^{i}_{l},\bar{r})\right).
+        \]
+        This is a $\Pi^{(i)}_{1}$ statement and hence preserved
+        upwards.
+      \end{proof}
+
+      \begin{corollary}
+        Let $\sigma \colon M \to N$ be $\Sigma^{*}$-elementary and
+        $p = \sigma(p_{M}) \in P^{*}_{N}$. If $M$ is solid, then
+        $p = p_{N}$ and $N$ is solid.
+      \end{corollary}
+
+    \section*{Bonus Exercises}
+
+    \begin{exercise} \label{exercise: projecta are moved correctly}
+      Let $\pi \colon M \to N$ be $\Sigma^{(n)}_{1}$-elementary. Then either
+      \begin{enumerate}
+      \item $\omega\rho^{n}_{M} = o(M)$ and $\omega\rho^{n}_{N} = o(N)$ or
+      \item $\omega\rho^{n}_{M} < o(M)$ and
+        $\pi(\omega\rho^{n}_{M}) = \omega\rho^{n}_{N}$.
+      \end{enumerate}
+      
+    \end{exercise}
+
+    \begin{corollary}
+      Let $\pi \colon M \to N$ be $\Sigma^{(n)}_{1}$-elementary. Then for all $k \le n$ either
+      \begin{enumerate}
+      \item $\omega\rho^{k}_{M} = o(M)$ and
+        $\omega\rho^{k}_{N} = o(N)$ or
+      \item $\omega\rho^{k}_{M} < o(M)$ and
+        $\pi(\omega\rho^{k}_{M}) = \omega\rho^{k}_{N}$.
+      \end{enumerate}
+      In particular this holds if $\pi \colon M \to N$ is
+      $\Sigma^{*}$-elementary.
+      \end{corollary}
+
+      \begin{proof}[Proof of Corollary]
+        If $\pi \colon M \to N$ is $\Sigma^{(n)}_{1}$-elementary, then
+        $\pi$ is also $\Sigma^{(l)}_{1}$-elementary for all $l \le n$.
+      \end{proof}
+    
+    % \begin{proof}[Proof of Exercise]
+    %   Let us adapt the convention, for this proof only, that
+    %   $\pi(o(M)) = o(N)$. \\
+    %   We proceed by induction on $n < \omega$. For $n = 0$ we have
+    %   $\omega\rho^{n}_{M} = o(M)$ and $\omega\rho^{n}_{N} = o(N)$. \\
+    %   Now assume that the claim holds for $n$. \\
+    %   First we show that
+    %   $\omega\rho^{n+1}_{N} \le \pi(\omega\rho^{n+1}_{M})$. If
+    %   $\omega\rho^{n}_{M} = \omega\rho^{n+1}_{M}$ then
+    %   $\omega\rho^{n+1}_{N} \le \omega\rho^{n}_{N} =
+    %   \pi(\omega\rho^{n}_{M}) = \pi(\omega\rho^{n+1}_{M})$. Thus we
+    %   may assume that $\omega\rho^{n+1}_{M} < \omega\rho^{n}_{M}$. \\
+    %   Let $\phi$ be a $\Sigma^{(n)}_{1}$ formula and $p \in M$ such
+    %   that
+    %   \[
+    %     \{ \xi < \omega\rho^{n+1}_{M} \mid M \models \phi[\xi, p] \}
+    %     \not \in M
+    %   \]
+    %   Since $\omega\rho^{n+1}_{M} < \omega\rho^{n}_{M} \le o(M)$ and
+    %   $M$ is acceptable, it follows that
+    %   \[
+    %     \{ \xi < \omega\rho^{n+1}_{M} \mid M \models \phi[\xi, p] \}
+    %     \not \in H^{n}_{M}
+    %   \]
+    %   Consider
+    %   \[
+    %     A := \{ \xi < o(N) \mid N \models \phi[\xi, \pi(p)] \}.
+    %   \]
+    %   It suffices to show that
+    %   $A \cap \pi(\omega\rho^{n+1}_{M}) \not \in N$. \\
+    %   Suppose $A \cap \pi(\omega\rho^{n+1}_{M}) \in N$. Since
+    %   $\omega\rho^{n+1}_{M} < \omega\rho^{n}_{M}$, we have
+    %   $\pi(\omega\rho^{n+1}_{M}) < \pi(\omega\rho^{n}_{M}) =
+    %   \omega\rho^{n}_{N}$. Hence $A \cap \pi(\omega\rho^{n+1}_{M})$ is
+    %   a bounded subset of $H^{n}_{N}$ and thus, by acceptability and
+    %   the fact that either $\omega\rho^{n}_{N} = o(N)$ or
+    %   $\omega\rho^{n}_{N}$ is an $N$-cardinal, in $H^{n}_{N}$. It
+    %   follows that
+    %   \[
+    %     N \models \exists x^{n} \forall \xi^{n} \in
+    %     \pi(\omega\rho^{n+1}_{M})^{n} \colon \xi^{n} \in x^{n} \iff \phi[\xi^{n},
+    %     \pi(p)].
+    %   \]
+    %   This is a $\Sigma^{(n)}_{1}$-statement and hence preserved downwards, i.e.
+    %   \[
+    %     M \models \exists x^{n} \forall \xi^{n} \in
+    %     \omega\rho^{n+1}_{M}^{n} \xi^{n} \in x^{n} \iff \phi[\xi^{n},
+    %     \pi].
+    %   \]
+    %   But this witnesses that
+    %   \[
+    %     \{ \xi < \omega\rho^{n+1}_{M} \mid M \models \phi[\xi, p] \}
+    %    \in H^{n}_{M},
+    %   \]
+    %   Contradiction! Hence we do have that
+    %   $\omega\rho^{n+1}_{N} \le \pi(\omega\rho^{n+1}_{M})$. \\
+
+    %   Conversely, suppose that $\pi(\omega\rho^{n+1}_{M}) < \omega\rho^{n+1}_{N}$. Then
+    %   \[
+    %     N \models \exists x^{n+1} \colon x^{n+1} = \pi(\omega\rho^{n+1}_{M}).
+    %   \]
+    %   By $\Sigma^{(n+1)}_{1}$-elementarity, we obtain
+    %   \[
+    %     N \models \exists x^{n+1} \colon x^{n+1} = \omega\rho^{n+1}_{M},
+    %   \]
+    %   i.e. $\omega\rho^{n+1}_{M} \in H^{n+1}_{M} \cap \ord$. But
+    %   $H^{n+1}_{M} \cap \ord = \omega\rho^{n+1}_{M}$. Contradiction!
+    % \end{proof}
+    
 \end{document}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
