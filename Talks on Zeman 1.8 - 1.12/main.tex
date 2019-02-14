@@ -101,7 +101,8 @@ Rutgers University}
 \section{Fine Structure}
 
 Unless specified otherwise, $M,N$ are acceptable
-$\mathcal{J}$-structures, $k,l,m,n < \omega$.
+$\mathcal{J}$-structures, $k,l,m,n < \omega$,
+$\alpha, \beta, \gamma, \ldots \in \ord$.
 
 \setcounter{subsection}{7}
 \subsection{Substitution and Good Functions}
@@ -221,7 +222,8 @@ following
 
 \begin{definition}
   Let $n < \omega$.  The \emph{good $\Sigma^{(n)}_1(M)$-functions}
-  consists of the smallest class $\mathcal{G}^{(n)}_1$ such that
+  consists of the $\subseteq$-smallest class $\mathcal{G}^{(n)}_1$
+  such that
   \begin{enumerate}
   \item Every partial $\Sigma^{(i)}_1(M)$-function
     $F(x^{i_{0}}, \ldots, x^{i_{k}})$ to $H^i_M$ with
@@ -287,7 +289,7 @@ $\Sigma^{*}$ fine structure:
 \end{proof}
 
 \begin{remark}
-  In these notes, I don't cover the definition of
+  In these notes, we don't cover the definition of
   $Q^{(n)}$-formulae. Consult Zeman's book.
 \end{remark}
 
@@ -517,9 +519,9 @@ $r(n) \in R_{M^{n, r \restriction n}}$.
 % \end{proof}
 
 \begin{lemma} \label{lemma:definability in very good parameters}
-  Let $r \in R^{n}_{M}$. Then
-  $\boldsymbol{\Sigma}_{l}(M) \subseteq \Sigma^{(n)}_{l}(M)$ for every
-  $l \ge 1$.
+  If $R^{n}_{M} \neq \emptyset$, then
+  $\boldsymbol{\Sigma}_{l}(M) \subseteq
+  \boldsymbol{\Sigma}^{(n)}_{l}(M)$ for every $l \ge 1$.
 \end{lemma}
 
 \begin{proof}
@@ -536,7 +538,7 @@ $r(n) \in R_{M^{n, r \restriction n}}$.
     \tilde{h}^{n}(x^{n}, r^{0}), a^{0}, \tilde{h}^{n}(\vec{\xi}^{n},
     r^{0})] \}
   \]
-  is $\Sigma^{(n)}_{1}(M)$.
+  is $\boldsymbol{\Sigma}^{(n)}_{1}(M)$.
 \end{proof}
 
 \begin{corollary}
@@ -644,7 +646,7 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
   \begin{definition}
     A definable, binary relation $R$ is \emph{set-like} if for all $y$
     \[
-      R_{y} := \{ x \mid (x,y) \in R \} 
+      ( \textvisiblespace R y) := \{ x \mid (x,y) \in R \} 
     \]
     is a set.
   \end{definition}
@@ -664,11 +666,24 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
   \setminus \xi_{n} = \{ \xi_{0}, \ldots, \xi_{n} \}\}$. Verify that
   this construction never breaks down (i.e. $\xi_{n+1} \neq 0$).)
 
+  % \begin{exercise}
+  %   Determine $x_{0}, x_{1}, x_{2} \in [\ord]^{<\omega}$ such that
+  %   \begin{enumerate}
+  %   \item $\otp (\textvisiblespace <^{*} x_{0} ) = 5$,
+  %   \item $\otp (\textvisiblespace <^{*} x_{1} ) = \omega$,
+  %   \item $\otp (\textvisiblespace <^{*} x_{2} ) = \omega + \omega$.
+  %   \item Suppose $\kappa$ is a cardinal in $L$. Show that
+  %     \[
+  %       \otp (\textvisiblespace <^{*} \{ \kappa \} ) = \kappa.
+  %     \]
+  %   \end{enumerate}
+  % \end{exercise}
+
   \begin{definition}
     The $<^{*}$-least $p \in P^{(n)}_{M} \cap [o(M)]^{< \omega}$,
     denoted by $p_{M,n}$, is called the \emph{$n$-th standard
-      parameter of
-      $M$}. \footnote{Zeman calls $p_{M,n}$ the standard parameter above $\omega \rho^{n}_{M}$.} \\
+      parameter of $M$}. \footnote{Zeman calls $p_{M,n}$ the standard
+      parameter above $\omega \rho^{n}_{M}$.} \\
     The $<^{*}$-least $p \in P^{*}_{M} \cap [o(M)]^{<\omega}$ is
     called the \emph{(ultimate) standard parameter of $M$}.
   \end{definition}
@@ -1468,7 +1483,6 @@ $P^{(n)}_{M} \cap [o(M)]^{<\omega}$ and we shall do so from now on.
     %   i.e. $\omega\rho^{n+1}_{M} \in H^{n+1}_{M} \cap \ord$. But
     %   $H^{n+1}_{M} \cap \ord = \omega\rho^{n+1}_{M}$. Contradiction!
     % \end{proof}
-    
 \end{document}
 
 %%% Local Variables:

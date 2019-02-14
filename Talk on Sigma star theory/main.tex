@@ -1,0 +1,206 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc} 
+\usepackage{amssymb}
+\usepackage{faktor} 
+\usepackage{fancyhdr}
+\usepackage{todonotes}
+\usepackage{amsmath}
+\usepackage{hyperref}
+%\usepackage[capitalize,nameinlink]{cleveref}
+\usepackage{amsthm}
+% \usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
+% \usepackage[printsolution=true]{exercises}
+
+% Theorem Environments
+\theoremstyle{nicestyle}
+\newtheorem{theorem}{Theorem}[subsection]
+\providecommand*{\theoremautorefname}{Theorem}
+\newtheorem{problem}{Problem}[subsection]
+\providecommand*{\problemeautorefname}{Problem}
+\newtheorem{hint}{Hint}[subsection]
+\providecommand*{\hintautorefname}{Problem}
+\newtheorem{exercise}{Exercise}[subsection]
+\providecommand*{\exerciseautorefname}{Exercise}
+\newtheorem{definition}{Definition}[subsection]
+\providecommand*{\definitionautorefname}{Definition}
+\newtheorem{lemma}{Lemma}[subsection]
+\providecommand*{\lemmaautorefname}{Lemma}
+\newtheorem{proposition}{Proposition}[subsection]
+\providecommand*{\propositionautorefname}{Propositon}
+\newtheorem{corollary}{Corollary}[subsection]
+\providecommand*{\corollaryautorefname}{Corollary}
+\newtheorem{claim}{Claim}[subsection]
+\providecommand*{\claimautorefname}{Claim}
+\newtheorem{subclaim}{Subclaim}[subsection]
+\providecommand*{\subclaimautorefname}{Subclaim}
+\newtheorem{convention}{Convention}[subsection]
+\providecommand*{\conventionautorefname}{Convention}
+\newtheorem{remark}{Remark}[subsection]
+\providecommand*{\remarkautorefname}{Remark}
+\newtheorem{fact}{Fact}[subsection]
+\providecommand*{\factautorefname}{Fact}
+\newtheorem{example}{Example}[subsection]
+\providecommand*{\exampleautorefname}{Example}
+\newtheorem{notation}{Notation}[subsection]
+\providecommand*{\notationautorefname}{Notation}
+\newtheorem{question}{Question}[subsection]
+\providecommand*{\questionautorefname}{Question}
+
+\newtheorem*{exercise*}{Exercise}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{claim*}{Claim} 
+\newtheorem*{subclaim*}{Subclaim}
+\newtheorem*{convention*}{Convention}
+
+% Proofblack
+\newenvironment{proofblack}{\begin{proof}}
+  {\renewcommand{\qedsymbol}{$\blacksquare$}\end{proof}}
+
+% Math Operators
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\col}{Col}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\rank}{rank} 
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ord}{Ord}
+\DeclareMathOperator{\limit}{Lim} 
+\DeclareMathOperator{\zfc}{ZFC}
+\DeclareMathOperator{\zf}{ZF} 
+\DeclareMathOperator{\tc}{tc}
+\DeclareMathOperator{\rk}{rk} 
+\DeclareMathOperator{\cf}{cf}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\fn}{Fn}
+\DeclareMathOperator{\ult}{Ult}
+\DeclareMathOperator{\rS}{r \Sigma}
+\DeclareMathOperator{\crit}{crit}
+\DeclareMathOperator{\trcl}{trcl}
+\DeclareMathOperator{\lh}{lh}
+\DeclareMathOperator{\wfp}{wfp}
+\DeclareMathOperator{\hull}{Hull}
+\DeclareMathOperator{\otp}{otp}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\lex}{lex}
+\DeclareMathOperator{\length}{lh}
+\DeclareMathOperator{\gch}{GCH}
+\DeclareMathOperator{\rud}{rud}
+
+\begin{document}
+\author{Stefan Mesken}
+\title{Iterated Reducts and $\Sigma^{*}$-Theory \\
+  Exercises}
+\maketitle
+
+Let $M = (J_{\alpha}^{A}; \in, A, B)$ be an acceptable
+(which also means amenable) $\mathcal{J}$-structure.
+
+In today's seminar, we've introduced
+\begin{enumerate}
+\item the iterated projecta $(\omega\rho^{n}_{M} \mid n < \omega)$ (section 1.5 in Zeman's book),
+\item the set of $n$-good parameters $P^{n}_{M}$ (section 1.5 in Zeman's book),
+\item the $n$-th master code $A^{n,p}_{M}$ for
+  $p \in P^{n}_{M}$ (section 1.5 in Zeman's book),
+\item the $n$-th reduct $M^{n,p}$ for $p \in P^{n}_{M}$ (section 1.5 in Zeman's book),
+\item $\Sigma^{(n)}_{l}$-formulae (section 1.6 in Zeman's book),
+\item the modeling relation $M \models \phi[\vec{a}]$ for
+  $\vec{a} \in M$ and $\phi \in \Sigma^{(n)}_{l}$ (section 1.6 in
+  Zeman's book).
+\end{enumerate}
+
+Here are some voluntary exercises of varying difficulty: \footnote{If
+  you decide to tackle (some of) them, you're more than welcome to
+  email me your solutions at
+  \href{mailto:stefan.m@wwu.de}{stefan.m@wwu.de} for feedback or to
+  discuss them with me after next week's seminar.}
+
+\begin{exercise}
+  Let $\kappa$ be an $M$-cardinal. Then for every
+  $a \in H^{M}_{\kappa}$
+  \[
+    \mathcal{P}(a) \cap M \subseteq H_{\kappa}^{M}.
+  \]
+\end{exercise}
+
+(Hint: $M$ is acceptable.)
+
+\begin{exercise}
+  Find a non-acceptable $N = (J^{C}_{\gamma}; \in, C, D)$ such that
+  the claim above fails.
+\end{exercise}
+
+(Hint: If you are already familiar with basic inner model theory,
+consider $L[U]$ for a normal ultrafilter $U \in V$ on $\kappa$ and
+compute at which level of $L[U]$ $0^{\#}$ (coded as a subset of
+$\omega$) appears. \\
+Alternatively, add a ``delayed Cohen real'' to $L$ via forcing,
+i.e. consider an isomorphic copy $\mathbb{P}$ of Cohen forcing in
+$L \setminus J_{\omega_{1}^{L}}$, let $g \subseteq \mathbb{P}$ be
+generic and consider $(J^{g}_{\kappa}; \in, g)$ for some sufficiently
+large $L$-cardinal $\kappa$.)
+
+
+\begin{exercise}
+  Let $p \in P^{1}_{M}$. Then
+  \begin{enumerate}
+  \item There is some set $A^{+}$ which is $\Sigma_{1}(M)$ in the
+    parameter $p(0)$ such that
+    \[
+      A^{1,p}_{M} = A^{+} \cap (\omega \times
+      H^{M}_{\omega\rho^{1}_{M}}).
+    \]
+    (And there is in fact a $\Sigma_{1}$-definition that defines
+    $A^{1,p}_{M}$ in this fashion uniformly for all acceptable
+    $\mathcal{J}$-structures of the same signature as $M$
+    \footnote{i.e. every acceptable $\mathcal{J}$-structure $N$ of the
+      form $N = (J^{C}_{\gamma}; \in, C, D)$, with $1$-ary predicates $C,D$}.)
+  \item For every $p \in P^{1}_{M}$
+    \[
+      M^{1,p} := (H^{M}_{\omega\rho^{1}_{M}}; \in, A^{1,p}_{M})
+    \]
+    is an acceptable $\mathcal{J}$-structure.
+  \end{enumerate}
+\end{exercise}
+
+(Hint: Let $(\phi_{i} \mid i < \omega)$ be a recursive enumeration of all $\Sigma_{1}$-formulae in the language of $M$. Recall that
+  \[
+    \models^{M}_{\Sigma_{1}} := \{ (i, x) \in \omega \times M \mid M \models \phi_{i}[x] \}
+  \]
+  is uniformly $\Sigma_{1}$-definable over $M$.  )
+
+  \begin{exercise}
+    Show that $M^{n,p}$ is acceptable for all $n < \omega$ and all
+    $p \in P^{n}_{M}$.
+  \end{exercise}
+
+  \begin{exercise}
+    Suppose that $\omega\rho^{n+1}_{M} < o(M)$. Prove that
+    \[
+      M \models \omega\rho^{n+1}_{M} \text{ is a cardinal.}
+    \]
+  \end{exercise}
+
+  (Hint: First prove that
+  \[
+    \omega\rho^{n+1}_{M} < \omega\rho^{n}_{M} \implies
+    (H^{M}_{\omega\rho^{n}_{M}}; \in) \models \omega\rho^{n+1}_{M}
+    \text{ is a cardinal}
+  \]
+  and then use acceptability.)
+
+  \begin{exercise}
+    Let $Q$ be a $\Sigma_{1}(M)$ definable in the parameter $p \in M$. Show that
+    \[
+      \Sigma_{l}(H^{M}_{\omega\rho^{1}_{M}}; \in, Q) \subseteq
+      \Sigma^{(1)}_{l}(M) \text{ in parameter } p.
+    \]
+  \end{exercise}
+
+  (Hint: $\Sigma^{(0)}_{1} \subseteq \Sigma^{(1)}_{l}$.)
+
+\end{document}
